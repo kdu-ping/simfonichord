@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chord Site</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== STYLE KHUSUS HALAMAN LIST ===== */
+    .search-box {
+      width: 100%;
+      padding: 10px 14px;
+      margin: 16px 0;
+      background: #16213e;
+      border: 1px solid #2a2a4a;
+      border-radius: 8px;
+      color: #e0e0ff;
+      font-size: 14px;
+      font-family: sans-serif;
+      outline: none;
+    }
+
+    .search-box::placeholder {
+      color: #888aaa;
+    }
+
+    .song-list {
+      list-style: none;
+    }
+
+    .song-item {
+      border-bottom: 1px solid #2a2a4a;
+    }
+
+    .song-item a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 4px;
+      color: #e0e0ff;
+      text-decoration: none;
+      font-family: sans-serif;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    .song-item a:hover {
+      color: #378add;
+    }
+
+    .song-item .artist {
+      font-size: 12px;
+      color: #888aaa;
+      margin-top: 3px;
+    }
+
+    .song-item .arrow {
+      color: #888aaa;
+      font-size: 18px;
+    }
+
+    .site-title {
+      font-size: 26px;
+      font-weight: bold;
+      color: #e0e0ff;
+      font-family: sans-serif;
+    }
+
+    .site-subtitle {
+      font-size: 13px;
+      color: #888aaa;
+      margin-top: 4px;
+      font-family: sans-serif;
+    }
+
+    .no-result {
+      text-align: center;
+      color: #888aaa;
+      padding: 30px 0;
+      font-family: sans-serif;
+      font-size: 14px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ===== HEADER ===== -->
+    <div class="header">
+      <div class="site-title">🎸 Chord Site</div>
+      <div class="site-subtitle">Kumpulan chord lagu</div>
+
+      <!-- SEARCH BOX -->
+      <input 
+        class="search-box" 
+        type="text" 
+        id="search" 
+        placeholder="🔍 Cari judul lagu atau artis..."
+        oninput="filterLagu()"
+      >
+    </div>
+
+    <!-- ===== LIST LAGU ===== -->
+    <div class="content">
+      <ul class="song-list" id="song-list">
+
+        <!-- TAMBAH LAGU BARU DI SINI -->
+        <li class="song-item" data-title="Bapa Engkau Sungguh Baik" data-artist="Franky Sihombing">
+          <a href="lagu/Bapa-Engkau-sungguh-baik.html">
+            <div>
+              <div>Bapa Engkau Sungguh Baik</div>
+              <div class="artist">Franky Sihombing</div>
+            </div>
+            <span class="arrow">›</span>
+          </a>
+        </li>
+
+        <li class="song-item" data-title="Glory Glory Halleluya" data-artist="Lagu Rohani">
+         <a href="lagu/Glory-glory-haleluyah.html">
+           <div>
+             <div>Glory Glory Halleluya</div>
+             <div class="artist">Lagu Rohani</div>
+           </div>
+           <span class="arrow">›</span>
+          </a>
+        </li>
+
+        <li class="song-item" data-title="Di Bawah Kepak SayapMu" data-artist="Robert & Lea Sutanto">
+         <a href="lagu/Di-bawah-kepak-sayapmu.html">
+           <div>
+              <div>Di Bawah Kepak SayapMu</div>
+             <div class="artist">Robert & Lea Sutanto</div>
+           </div>
+           <span class="arrow">›</span>
+          </a>
+        </li>
+
+<li class="song-item" data-title="Oleh Darah Anak Domba" data-artist="Franky Sihombing">
+  <a href="lagu/Oleh-darah-anak-domba.html">
+    <div>
+      <div>Oleh Darah Anak Domba</div>
+      <div class="artist">Franky Sihombing</div>
+    </div>
+    <span class="arrow">›</span>
+  </a>
+</li>
+
+<li class="song-item" data-title="Allah Peduli" data-artist="Nikita">
+  <a href="lagu/allah-peduli.html">
+    <div>
+      <div>Allah Peduli</div>
+      <div class="artist">Nikita</div>
+    </div>
+    <span class="arrow">›</span>
+  </a>
+</li>
+
+      </ul>
+      <div class="no-result" id="no-result">Lagu tidak ditemukan 😔</div>
+    </div>
+
+  </div>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // FUNGSI CARI LAGU
+    function filterLagu() {
+      const keyword = document.getElementById('search').value.toLowerCase();
+      const items = document.querySelectorAll('.song-item');
+      let found = 0;
+
+      items.forEach(item => {
+        const title = item.getAttribute('data-title').toLowerCase();
+        const artist = item.getAttribute('data-artist').toLowerCase();
+        if (title.includes(keyword) || artist.includes(keyword)) {
+          item.style.display = '';
+          found++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      document.getElementById('no-result').style.display = found === 0 ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>

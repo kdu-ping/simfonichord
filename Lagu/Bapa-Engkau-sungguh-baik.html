@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bapa Engkau Sungguh Baik</title>
+ <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- ===== HEADER ===== -->
+<div class="header">
+
+  <!-- TOMBOL BACK + MODE dalam satu baris -->
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+
+    <!-- TOMBOL BACK -->
+    <a href="../index.html" style="text-decoration: none; color: #888aaa; font-size: 28px;">&#11013;</a>
+
+    <!-- TOMBOL DARK/LIGHT MODE -->
+    <div style="display: flex; align-items: center; gap: 6px;">
+      <span id="icon-moon" style="font-size: 16px; color: #e0e0ff;">&#9789;</span>
+      <div onclick="toggleMode()" id="toggle-switch" style="width: 40px; height: 22px; background: #525f6d; border-radius: 20px; cursor: pointer; position: relative; transition: background 0.3s;">
+        <div id="toggle-ball" style="width: 16px; height: 16px; background: white; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: left 0.3s;"></div>
+      </div>
+      <span id="icon-sun" style="font-size: 20px; color: #888aaa;">&#9788;</span>
+    </div>
+
+  </div>
+
+  <div class="song-title">Bapa Engkau Sungguh Baik</div>
+  <div class="song-artist">Franky Sihombing</div>
+
+  <!-- TOMBOL TRANSPOSE -->
+  <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px;">
+    <button onclick="setKey('A')"  class="key-btn" id="key-A">A</button>
+    <button onclick="setKey('Bb')" class="key-btn" id="key-Bb">Bb</button>
+    <button onclick="setKey('B')"  class="key-btn" id="key-B">B</button>
+    <button onclick="setKey('C')"  class="key-btn" id="key-C">C</button>
+    <button onclick="setKey('C#')" class="key-btn" id="key-C#">C#</button>
+    <button onclick="setKey('D')"  class="key-btn" id="key-D">D</button>
+    <button onclick="setKey('D#')" class="key-btn" id="key-D#">D#</button>
+    <button onclick="setKey('E')"  class="key-btn" id="key-E">E</button>
+    <button onclick="setKey('F')"  class="key-btn" id="key-F">F</button>
+    <button onclick="setKey('F#')" class="key-btn" id="key-F#">F#</button>
+    <button onclick="setKey('G')"  class="key-btn" id="key-G">G</button>
+    <button onclick="setKey('G#')" class="key-btn" id="key-G#">G#</button>
+  </div>
+
+</div>
+
+    <!-- ===== KONTEN LIRIK ===== -->
+    <div class="content">
+
+      <!-- VERSE -->
+      <div class="section-label">Verse</div>
+
+      <div class="line">
+        <div class="token"><span class="chord" id="c0"> </span><span class="lyric">Ba</span></div>
+        <div class="token"><span class="chord" id="c1">D</span><span class="lyric">pa, Engkau sung</span></div>
+        <div class="token"><span class="chord" id="c2">G</span><span class="lyric">guh Baik</span></div>
+      </div>
+
+      <div class="line">
+        <div class="token"><span class="chord" id="c3"> </span><span class="lyric">Kasih-Mu </span></div>
+        <div class="token"><span class="chord" id="c4">F#m</span><span class="lyric">Melim</span></div>
+        <div class="token"><span class="chord" id="c5">Bm</span><span class="lyric">pah </span></div>
+        <div class="token"><span class="chord" id="c6">E</span><span class="lyric">  Di Hidupku </span></div>
+        <div class="token"><span class="chord" id="c7">A</span><span class="lyric"> </span></div>
+      </div>
+
+      <div class="line">
+        <div class="token"><span class="chord" id="c8"> </span><span class="lyric">Ba</span></div>
+        <div class="token"><span class="chord" id="c9">D</span><span class="lyric">pa, Ku Bert'ri</span></div>
+        <div class="token"><span class="chord" id="c10">G</span><span class="lyric">ma Kasih</span></div>
+      </div>
+
+      <div class="line">
+        <div class="token"><span class="chord" id="c11"> </span><span class="lyric">Berkat-Mu </span></div>
+        <div class="token"><span class="chord" id="c12">F#m</span><span class="lyric">Hari I</span></div>
+        <div class="token"><span class="chord" id="c13">Bm</span><span class="lyric">ni Yang </span></div>
+        <div class="token"><span class="chord" id="c14">Em</span><span class="lyric">Kau Se</span></div>
+        <div class="token"><span class="chord" id="c15">A</span><span class="lyric">diakan Ba</span></div>
+        <div class="token"><span class="chord" id="c16">D</span><span class="lyric">gi ku </span></div>
+        <div class="token"><span class="chord" id="c17">A</span><span class="lyric"> </span></div>
+      </div>
+
+      <!-- REFF -->
+      <div class="section-label">Reff</div>
+
+      <div class="line">
+        <div class="token"><span class="chord" id="c18"> </span><span class="lyric">Kunaikkan </span></div>
+        <div class="token"><span class="chord" id="c19">D</span><span class="lyric">Syukurku </span></div>
+        <div class="token"><span class="chord" id="c20">F#</span><span class="lyric"> </span></div>
+        <div class="token"><span class="chord" id="c21"> </span><span class="lyric"> Buat Hari </span></div>
+        <div class="token"><span class="chord" id="c22">Bm</span><span class="lyric">Yang Kau B'ri </span></div>
+        <div class="token"><span class="chord" id="c23">Am</span><span class="lyric"> </span></div>
+      </div>
+
+      <div class="line">
+        <div class="token"><span class="chord" id="c24"> </span><span class="lyric">Tak </span></div>
+        <div class="token"><span class="chord" id="c25">D</span><span class="lyric">Habis-</span></div>
+        <div class="token"><span class="chord" id="c26">G</span><span class="lyric">Habisnya Ka</span></div>
+        <div class="token"><span class="chord" id="c27">Em</span><span class="lyric">sih Dan Rahmat-</span></div>
+        <div class="token"><span class="chord" id="c28">C</span><span class="lyric">Mu </span></div>
+        <div class="token"><span class="chord" id="c29">A</span><span class="lyric"> </span></div>
+      </div>
+
+      <div class="line">
+        <div class="token"><span class="chord" id="c30"> </span><span class="lyric">S'lalu Ba</span></div>
+        <div class="token"><span class="chord" id="c31">D</span><span class="lyric">ru Dan Tak Per</span></div>
+        <div class="token"><span class="chord" id="c32">Am</span><span class="lyric">nah </span></div>
+        <div class="token"><span class="chord" id="c33">D</span><span class="lyric">Terlambat </span></div>
+        <div class="token"><span class="chord" id="c34">G</span><span class="lyric">Pertolongan-</span></div>
+        <div class="token"><span class="chord" id="c35">E/G#</span><span class="lyric">Mu</span></div>
+      </div>
+
+      <div class="line">
+        <div class="token"><span class="chord" id="c36"> </span><span class="lyric">Besar Se</span></div>
+        <div class="token"><span class="chord" id="c37">D/A</span><span class="lyric">tia -</span></div>
+        <div class="token"><span class="chord" id="c38">Bm</span><span class="lyric"> Mu Di </span></div>
+        <div class="token"><span class="chord" id="c39">Em</span><span class="lyric">S'panjang </span></div>
+        <div class="token"><span class="chord" id="c40">A</span><span class="lyric">Hidup</span></div>
+        <div class="token"><span class="chord" id="c41">D</span><span class="lyric">ku</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+  // CHORD ORIGINAL LAGU (kunci D)
+  const originalChords = {
+    c0: '',     c1: 'D',    c2: 'G',
+    c3: '',     c4: 'F#m',  c5: 'Bm',  c6: 'E',   c7: 'A',
+    c8: '',     c9: 'D',    c10: 'G',
+    c11: '',    c12: 'F#m', c13: 'Bm', c14: 'Em', c15: 'A',  c16: 'D', c17: 'A',
+    c18: '',    c19: 'D',   c20: 'F#', c21: '',   c22: 'Bm', c23: 'Am',
+    c24: '',    c25: 'D',   c26: 'G',  c27: 'Em', c28: 'C',  c29: 'A',
+    c30: '',    c31: 'D',   c32: 'Am', c33: 'D',  c34: 'G',  c35: 'E/G#',
+    c36: '',    c37: 'D/A', c38: 'Bm', c39: 'Em', c40: 'A',  c41: 'D'
+  };
+
+  const rootKey = 'D';
+  </script>
+  <script src="../script.js"></script>
+</body>
+</html>

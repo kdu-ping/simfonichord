@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allah Peduli</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- ===== HEADER ===== -->
+    <div class="header">
+
+      <!-- TOMBOL BACK + MODE dalam satu baris -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+
+        <!-- TOMBOL BACK -->
+        <a href="../index.html" style="text-decoration: none; color: #888aaa; font-size: 28px;">&#11013;</a>
+
+        <!-- TOMBOL DARK/LIGHT MODE -->
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <span id="icon-moon" style="font-size: 16px; color: #e0e0ff;">&#9789;</span>
+          <div onclick="toggleMode()" id="toggle-switch" style="width: 40px; height: 22px; background: #525f6d; border-radius: 20px; cursor: pointer; position: relative; transition: background 0.3s;">
+            <div id="toggle-ball" style="width: 16px; height: 16px; background: white; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: left 0.3s;"></div>
+          </div>
+          <span id="icon-sun" style="font-size: 16px; color: #888aaa;">&#9788;</span>
+        </div>
+
+      </div>
+
+      <div class="song-title">Allah Peduli</div>
+      <div class="song-artist">Nikita</div>
+
+      <!-- TOMBOL TRANSPOSE -->
+      <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px;">
+        <button onclick="setKey('A')"  class="key-btn" id="key-A">A</button>
+        <button onclick="setKey('Bb')" class="key-btn" id="key-Bb">Bb</button>
+        <button onclick="setKey('B')"  class="key-btn" id="key-B">B</button>
+        <button onclick="setKey('C')"  class="key-btn" id="key-C">C</button>
+        <button onclick="setKey('C#')" class="key-btn" id="key-C#">C#</button>
+        <button onclick="setKey('D')"  class="key-btn" id="key-D">D</button>
+        <button onclick="setKey('D#')" class="key-btn" id="key-D#">D#</button>
+        <button onclick="setKey('E')"  class="key-btn" id="key-E">E</button>
+        <button onclick="setKey('F')"  class="key-btn" id="key-F">F</button>
+        <button onclick="setKey('F#')" class="key-btn" id="key-F#">F#</button>
+        <button onclick="setKey('G')"  class="key-btn" id="key-G">G</button>
+        <button onclick="setKey('G#')" class="key-btn" id="key-G#">G#</button>
+      </div>
+    </div>
+
+    <!-- ===== KONTEN LIRIK ===== -->
+    <div class="content">
+
+      <!-- GANTI SECTION DAN LIRIK DI BAWAH INI -->
+
+      <!-- VERSE -->
+<div class="section-label">Verse</div>
+
+<div class="line">
+  <div class="token"><span class="chord" id="c0">F</span><span class="lyric">Banyak Perka</span></div>
+  <div class="token"><span class="chord" id="c1">Dm</span><span class="lyric">ra</span></div>
+</div>
+
+<div class="line">
+  <div class="token"><span class="chord" id="c2">Gm</span><span class="lyric">  Yang Tak </span></div>
+  <div class="token"><span class="chord" id="c3">C</span><span class="lyric">Dapat Ku</span></div>
+  <div class="token"><span class="chord" id="c4">F</span><span class="lyric">mengerti</span></div>
+  <div class="token"><span class="chord" id="c5">Dm</span><span class="lyric"> </span></div>
+</div>
+
+<div class="line">
+  <div class="token"><span class="chord" id="c6">Gm</span><span class="lyric">  Menga</span></div>
+  <div class="token"><span class="chord" id="c7">C</span><span class="lyric">pakah Harus </span></div>
+  <div class="token"><span class="chord" id="c8">F</span><span class="lyric">Ter- </span></div>
+  <div class="token"><span class="chord" id="c9">C/E</span><span class="lyric">ja - </span></div>
+  <div class="token"><span class="chord" id="c10">Dm</span><span class="lyric">di</span></div>
+</div>
+
+<div class="line">
+  <div class="token"><span class="chord" id="c11">G</span><span class="lyric">  Di Dalam Kehidu</span></div>
+  <div class="token"><span class="chord" id="c12">C</span><span class="lyric">pan Ini</span></div>
+</div>
+
+<div class="line">
+  <div class="token"><span class="chord" id="c13">F</span><span class="lyric">Satu Perka</span></div>
+  <div class="token"><span class="chord" id="c14">Dm</span><span class="lyric">ra</span></div>
+</div>
+
+<div class="line">
+  <div class="token"><span class="chord" id="c15">Gm</span><span class="lyric">  Yang Ku</span></div>
+  <div class="token"><span class="chord" id="c16">C</span><span class="lyric">simpan Dalam </span></div>
+  <div class="token"><span class="chord" id="c17">F</span><span class="lyric">Hati</span></div>
+  <div class="token"><span class="chord" id="c18">Dm</span><span class="lyric"> </span></div>
+</div>
+
+<div class="line">
+  <div class="token"><span class="chord" id="c19">Gm</span><span class="lyric">  Tiada </span></div>
+  <div class="token"><span class="chord" id="c20">C</span><span class="lyric">Sesuatu 'Kan </span></div>
+  <div class="token"><span class="chord" id="c21">F</span><span class="lyric">Ter- </span></div>
+  <div class="token"><span class="chord" id="c22">C/E</span><span class="lyric">ja - </span></div>
+  <div class="token"><span class="chord" id="c23">Dm</span><span class="lyric">di</span></div>
+</div>
+
+<div class="line">
+  <div class="token"><span class="chord" id="c24">Gm</span><span class="lyric">  Tanpa </span></div>
+  <div class="token"><span class="chord" id="c25">C</span><span class="lyric">Allah </span></div>
+  <div class="token"><span class="chord" id="c26">F</span><span class="lyric">Peduli</span></div>
+  <div class="token"><span class="chord" id="c27">C</span><span class="lyric"> </span></div>
+</div>
+
+<!-- REFF -->
+<div class="section-label">Reff</div>
+
+<div class="line">
+  <div class="token"><span class="chord" id="c28">F</span><span class="lyric">Allah </span></div>
+  <div class="token"><span class="chord" id="c29">C/E</span><span class="lyric"> Mengerti,</span></div>
+  <div class="token"><span class="chord" id="c30">Dm</span><span class="lyric"> Allah Pe</span></div>
+  <div class="token"><span class="chord" id="c31">Am</span><span class="lyric">duli</span></div>
+</div>
+
+<div class="line">
+  <div class="token"><span class="chord" id="c32">Bb</span><span class="lyric">Segala Per</span></div>
+  <div class="token"><span class="chord" id="c33">F/A</span><span class="lyric">soalan </span></div>
+  <div class="token"><span class="chord" id="c34">G</span><span class="lyric">Yang Kita Ha</span></div>
+  <div class="token"><span class="chord" id="c35">C</span><span class="lyric">dapi</span></div>
+</div>
+
+<div class="line">
+  <div class="token"><span class="chord" id="c36">F</span><span class="lyric">Tak Akan </span></div>
+  <div class="token"><span class="chord" id="c37">C/E</span><span class="lyric">Pernah </span></div>
+  <div class="token"><span class="chord" id="c38">Dm</span><span class="lyric"> Dibiar</span></div>
+  <div class="token"><span class="chord" id="c39">Am</span><span class="lyric">kannya</span></div>
+</div>
+
+<div class="line">
+  <div class="token"><span class="chord" id="c40">Bb</span><span class="lyric">Kubergumul </span></div>
+  <div class="token"><span class="chord" id="c41">F/A</span><span class="lyric">Sendiri</span></div>
+</div>
+
+<div class="line">
+  <div class="token"><span class="chord" id="c42"> </span><span class="lyric">S'bab </span></div>
+  <div class="token"><span class="chord" id="c43">Gm</span><span class="lyric">Allah </span></div>
+  <div class="token"><span class="chord" id="c44">C</span><span class="lyric">Menger</span></div>
+  <div class="token"><span class="chord" id="c45">F</span><span class="lyric">ti </span></div>
+</div>
+    </div>
+  </div>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+  const originalChords = {
+    c0: 'F',   c1: 'Dm',
+    c2: 'Gm',  c3: 'C',   c4: 'F',   c5: 'Dm',
+    c6: 'Gm',  c7: 'C',   c8: 'F',   c9: 'C/E',  c10: 'Dm',
+    c11: 'G',  c12: 'C',
+    c13: 'F',  c14: 'Dm',
+    c15: 'Gm', c16: 'C',  c17: 'F',  c18: 'Dm',
+    c19: 'Gm', c20: 'C',  c21: 'F',  c22: 'C/E', c23: 'Dm',
+    c24: 'Gm', c25: 'C',  c26: 'F',  c27: 'C',
+    c28: 'F',  c29: 'C/E',c30: 'Dm', c31: 'Am',
+    c32: 'A#', c33: 'F/A',c34: 'G',  c35: 'C',
+    c36: 'F',  c37: 'C/E',c38: 'Dm', c39: 'Am',
+    c40: 'A#', c41: 'F/A',
+    c42: '',   c43: 'Gm', c44: 'C',  c45: 'F'
+  };
+
+  const rootKey = 'F';
+</script>
+<script src="../script.js"></script>
+</body>
+</html>

@@ -280,3 +280,29 @@ function transposeChord(chord, steps) {
   </script>
 </body>
 </html>
+
+
+
+
+
+// FUNGSI TRANSPOSE
+function transposeChord(chord, steps) {
+  const base = chord.replace('m','').replace('maj','').replace('sus','').replace('dim','').replace('aug','').split('/')[0];
+  const suffix = chord.replace(base, '').split('/')[0];
+  const bassRaw = chord.includes('/') ? chord.split('/')[1] : '';
+  let idx = chords.indexOf(base);
+  if (idx === -1) return chord;
+  idx = (idx + steps + 120) % 12;
+  const newBase = chords[idx];
+  if (bassRaw) {
+    let bassIdx = chords.indexOf(bassRaw);
+    bassIdx = (bassIdx + steps + 120) % 12;
+    return newBase + suffix + '/' + chords[bassIdx];
+  }
+  return newBase + suffix;
+}
+
+
+git add .
+git commit -m "pesan perubahan"
+git push

@@ -14,15 +14,15 @@ document.addEventListener('click', function(e) {
 // ===== DARK/LIGHT MODE =====
 function toggleMode() {
   document.body.classList.toggle('light');
-  document.getElementById('toggle-wrap').classList.toggle('active');
+  const toggleWrap = document.getElementById('toggle-wrap');
+  if (toggleWrap) toggleWrap.classList.toggle('active');
   localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
 }
-
 if (localStorage.getItem('theme') === 'light') {
   document.body.classList.add('light');
-  document.getElementById('toggle-wrap').classList.add('active');
+  const toggleWrap = document.getElementById('toggle-wrap');
+  if (toggleWrap) toggleWrap.classList.add('active');
 }
-
 // ===== FONT SIZE (sistem Word) =====
 const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72];
 let fontIdx = 4;

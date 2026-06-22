@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><title>Glory Glory Halleluya</title></title>
+  <title>Glory Glory Halleluya</title>
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -18,14 +18,31 @@
         <!-- TOMBOL BACK -->
         <a href="../index.html" style="text-decoration: none; color: #888aaa; font-size: 28px;">&#11013;</a>
 
-        <!-- TOMBOL DARK/LIGHT MODE -->
-        <div style="display: flex; align-items: center; gap: 6px;">
-          <span id="icon-moon" style="font-size: 16px; color: #e0e0ff;">&#9789;</span>
-          <div onclick="toggleMode()" id="toggle-switch" style="width: 40px; height: 22px; background: #525f6d; border-radius: 20px; cursor: pointer; position: relative; transition: background 0.3s;">
-            <div id="toggle-ball" style="width: 16px; height: 16px; background: white; border-radius: 50%; position: absolute; top: 3px; left: 3px; transition: left 0.3s;"></div>
-          </div>
-          <span id="icon-sun" style="font-size: 16px; color: #888aaa;">&#9788;</span>
-        </div>
+        <!-- TOMBOL SETTINGS -->
+<div style="position: relative;">
+  <button class="btn-settings" id="btn-settings" onclick="toggleSettings()" aria-label="Pengaturan">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  <div class="settings-panel" id="settings-panel">
+    <div class="settings-title">Pengaturan</div>
+    <div class="settings-row">
+      <div class="settings-label"><span>🌙</span> Mode Gelap</div>
+      <div class="toggle-wrap" onclick="toggleMode()" id="toggle-wrap">
+        <div class="toggle-ball" id="toggle-ball"></div>
+      </div>
+    </div>
+    <div class="settings-row">
+      <div class="settings-label"><span>A</span> Ukuran Font</div>
+      <div class="font-ctrl">
+        <button class="fc-btn" onclick="changeFont(-1)" id="fc-min">−</button>
+        <span class="fc-val" id="fc-val">12</span>
+        <button class="fc-btn" onclick="changeFont(1)" id="fc-plus">+</button>
+      </div>
+    </div>
+  </div>
+</div>
 
       </div>
 
@@ -100,6 +117,7 @@
 
   </script>
   <script src="../script.js"></script>
+<script src="../settings.js"></script>
 
 </body>
 </html>

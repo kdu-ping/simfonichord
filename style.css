@@ -181,4 +181,132 @@ body.light .lyric {
 
 }
 
+
+/* ===== TOMBOL SETTINGS ===== */
+.btn-settings {
+  background: #2a2a4a;
+  border: 1px solid #3a3a5a;
+  border-radius: 8px;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
 }
+.btn-settings .bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: #e0e0ff;
+  border-radius: 2px;
+}
+.btn-settings:hover { background: #3a3a5a; }
+
+/* ===== PANEL SETTINGS ===== */
+.settings-panel {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 46px;
+  background: #16213e;
+  border: 1px solid #2a2a4a;
+  border-radius: 10px;
+  padding: 14px 16px;
+  width: 220px;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.settings-panel.open { display: block; }
+.settings-title {
+  font-size: 11px;
+  color: #888aaa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  margin-bottom: 12px;
+}
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid #2a2a4a;
+}
+.settings-row:last-child { border-bottom: none; padding-bottom: 0; }
+.settings-label {
+  font-size: 13px;
+  color: #c8c8e8;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* ===== TOGGLE ===== */
+.toggle-wrap {
+  width: 42px;
+  height: 24px;
+  background: #2a2a4a;
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.toggle-wrap.active { background: #378add; }
+.toggle-ball {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: left 0.2s;
+}
+.toggle-wrap.active .toggle-ball { left: 21px; }
+
+/* ===== FONT CONTROL ===== */
+.font-ctrl { display: flex; align-items: center; gap: 6px; }
+.fc-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 1px solid #3a3a5a;
+  background: #2a2a4a;
+  color: #e0e0ff;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  transition: background 0.15s;
+}
+.fc-btn:hover { background: #3a3a5a; }
+.fc-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.fc-val {
+  font-size: 13px;
+  font-weight: bold;
+  color: #e0e0ff;
+  min-width: 22px;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+/* ===== LIGHT MODE SETTINGS ===== */
+body.light .btn-settings { background: #e0e0e0; border-color: #cccccc; }
+body.light .btn-settings .bar { background: #1a1a2e; }
+body.light .btn-settings:hover { background: #d0d0d0; }
+body.light .settings-panel { background: #ffffff; border-color: #dddddd; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+body.light .settings-row { border-color: #eeeeee; }
+body.light .settings-label { color: #333333; }
+body.light .settings-title { color: #999999; }
+body.light .toggle-wrap { background: #cccccc; }
+body.light .toggle-wrap.active { background: #378add; }
+body.light .fc-btn { background: #e0e0e0; border-color: #cccccc; color: #1a1a2e; }
+body.light .fc-btn:hover { background: #d0d0d0; }
+body.light .fc-val { color: #1a1a2e; }

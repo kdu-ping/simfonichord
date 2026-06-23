@@ -4,8 +4,8 @@
 /* ===== BODY ===== */
 body {
   font-family: 'Courier New', monospace;
-  background-color: #1a1a2e;
-  color: #c8c8e8;
+  background-color: #ffffff;
+  color: #333333;
   padding: 20px;
 }
 
@@ -17,11 +17,12 @@ body {
 
 /* ===== HEADER ===== */
 .header {
-  background: #16213e;
+  background: #ffffff;
   padding: 20px 28px;
   border-radius: 12px 12px 0 0;
-  border-bottom: 1px solid #2a2a4a;
+  border-bottom: 1px solid #dddddd;
 }
+
 
 .song-title {
   font-size: 22px;
@@ -56,12 +57,13 @@ body {
 
 /* ===== KONTEN LIRIK ===== */
 .content {
-  background: #1a1a2e;
+  background: #ffffff;
   padding: 24px 28px;
   border-radius: 0 0 12px 12px;
-  border: 1px solid #2a2a4a;
+  border: 1px solid #dddddd;
   border-top: none;
 }
+
 
 /* ===== LABEL SECTION ===== */
 .section-label {
@@ -97,7 +99,7 @@ body {
 
 .lyric {
   font-size: 15px;
-  color: #c8c8e8;
+  color: #333333;
   white-space: pre;
 }
 
@@ -164,6 +166,17 @@ body.light .lyric {
 
   .container {
     overflow-x: auto;
+  }
+
+  .header-top img {
+    height: 50px;
+  }
+  .site-title {
+    font-size: 18px;
+  }
+  .site-subtitle {
+    font-size: 9px;
+    letter-spacing: 1px;
   }
 
 }
@@ -269,6 +282,7 @@ body.light .lyric {
 }
 .toggle-wrap.active .toggle-ball { left: 21px; }
 
+
 /* ===== FONT CONTROL ===== */
 .font-ctrl { display: flex; align-items: center; gap: 6px; }
 .fc-btn {
@@ -310,3 +324,32 @@ body.light .toggle-wrap.active { background: #378add; }
 body.light .fc-btn { background: #e0e0e0; border-color: #cccccc; color: #1a1a2e; }
 body.light .fc-btn:hover { background: #d0d0d0; }
 body.light .fc-val { color: #1a1a2e; }
+
+/* ===== DARK MODE INDEX ===== */
+body.dark {
+  background-color: #1a1a2e;
+  color: #c8c8e8;
+}
+
+body.dark .header {
+  background: #16213e;
+  border-bottom: 1px solid #2a2a4a;
+}
+
+body.dark .content {
+  background: #1a1a2e;
+  border-color: #2a2a4a;
+}
+
+body.dark .song-item { border-color: #2a2a4a; }
+body.dark .song-item a { color: #e0e0ff; }
+body.dark .song-item .artist { color: #888aaa; }
+body.dark .search-box { border-color: #2a2a4a; color: #e0e0ff; }
+body.dark .search-box::placeholder { color: #888aaa; }
+body.dark .site-subtitle { color: #888aaa; }
+body.dark .btn-settings { background: #2a2a4a; border-color: #3a3a5a; }
+body.dark .btn-settings .bar { background: #e0e0ff; }
+body.dark .settings-panel { background: #16213e; border-color: #2a2a4a; }
+body.dark .settings-row { border-color: #2a2a4a; }
+body.dark .settings-label { color: #c8c8e8; }
+

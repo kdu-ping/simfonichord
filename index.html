@@ -3,198 +3,170 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chord Site</title>
+  <title>SimfoniChord</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ===== STYLE KHUSUS HALAMAN LIST ===== */
     .header-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-/* ===== TOMBOL SETTINGS ===== */
-.btn-settings {
-  background: #2a2a4a;
-  border: 1px solid #3a3a5a;
-  border-radius: 8px;
-  width: 38px;
-  height: 38px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  padding: 0;
-  margin-top: 4px;
-}
-.btn-settings .bar {
-  display: block;
-  width: 18px;
-  height: 2px;
-  background: #e0e0ff;
-  border-radius: 2px;
-}
-.btn-settings:hover { background: #3a3a5a; }
-
-/* ===== PANEL SETTINGS ===== */
-.settings-panel {
-  display: none;
-  position: absolute;
-  right: 0;
-  top: 46px;
-  background: #16213e;
-  border: 1px solid #2a2a4a;
-  border-radius: 10px;
-  padding: 14px 16px;
-  width: 220px;
-  z-index: 100;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-}
-.settings-panel.open { display: block; }
-.settings-title {
-  font-size: 11px;
-  color: #888aaa;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-family: sans-serif;
-  margin-bottom: 12px;
-}
-.settings-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 9px 0;
-  border-bottom: 1px solid #2a2a4a;
-}
-.settings-row:last-child { border-bottom: none; padding-bottom: 0; }
-.settings-label {
-  font-size: 13px;
-  color: #c8c8e8;
-  font-family: sans-serif;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-/* ===== TOGGLE DARK/LIGHT ===== */
-.toggle-wrap {
-  width: 42px;
-  height: 24px;
-  background: #2a2a4a;
-  border-radius: 12px;
-  position: relative;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.toggle-wrap.active { background: #378add; }
-.toggle-ball {
-  width: 18px;
-  height: 18px;
-  background: #fff;
-  border-radius: 50%;
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  transition: left 0.2s;
-}
-.toggle-wrap.active .toggle-ball { left: 21px; }
-
-/* ===== FONT CONTROL ===== */
-.font-ctrl { display: flex; align-items: center; gap: 6px; }
-.fc-btn {
-  width: 26px;
-  height: 26px;
-  border-radius: 6px;
-  border: 1px solid #3a3a5a;
-  background: #2a2a4a;
-  color: #e0e0ff;
-  font-size: 15px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: sans-serif;
-  transition: background 0.15s;
-}
-.fc-btn:hover { background: #3a3a5a; }
-.fc-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-.fc-val {
-  font-size: 13px;
-  font-weight: bold;
-  color: #e0e0ff;
-  min-width: 22px;
-  text-align: center;
-  font-family: sans-serif;
-}
-
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .btn-settings {
+      background: transparent;
+      border: 1.5px solid #1B2F4E;
+      border-radius: 8px;
+      width: 38px;
+      height: 38px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      padding: 0;
+      margin-top: 4px;
+    }
+    .btn-settings .bar {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: #1B2F4E;
+      border-radius: 2px;
+    }
+    .btn-settings:hover { background: #f0f0f0; }
+    .settings-panel {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 46px;
+      background: #ffffff;
+      border: 1px solid #dddddd;
+      border-radius: 10px;
+      padding: 14px 16px;
+      width: 220px;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .settings-panel.open { display: block; }
+    .settings-title {
+      font-size: 11px;
+      color: #999999;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-family: sans-serif;
+      margin-bottom: 12px;
+    }
+    .settings-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 0;
+      border-bottom: 1px solid #eeeeee;
+    }
+    .settings-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .settings-label {
+      font-size: 13px;
+      color: #333333;
+      font-family: sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .toggle-wrap {
+      width: 42px;
+      height: 24px;
+      background: #cccccc;
+      border-radius: 12px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .toggle-wrap.active { background: #378add; }
+    .toggle-ball {
+      width: 18px;
+      height: 18px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      transition: left 0.2s;
+    }
+    .toggle-wrap.active .toggle-ball { left: 21px; }
+    .font-ctrl { display: flex; align-items: center; gap: 6px; }
+    .fc-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      border: 1px solid #cccccc;
+      background: #e0e0e0;
+      color: #1a1a2e;
+      font-size: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      transition: background 0.15s;
+    }
+    .fc-btn:hover { background: #d0d0d0; }
+    .fc-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .fc-val {
+      font-size: 13px;
+      font-weight: bold;
+      color: #1a1a2e;
+      min-width: 22px;
+      text-align: center;
+      font-family: sans-serif;
+    }
     .search-box {
       width: 100%;
       padding: 10px 14px;
-      margin: 16px 0;
-      background: #16213e;
-      border: 1px solid #2a2a4a;
+      margin: 16px 0 0;
+      background: transparent;
+      border: 1.5px solid #1B2F4E;
       border-radius: 8px;
-      color: #e0e0ff;
+      color: #1B2F4E;
       font-size: 14px;
       font-family: sans-serif;
       outline: none;
+      box-sizing: border-box;
     }
-
-    .search-box::placeholder {
-      color: #888aaa;
-    }
-
-    .song-list {
-      list-style: none;
-    }
-
-    .song-item {
-      border-bottom: 1px solid #2a2a4a;
-    }
-
+    .search-box::placeholder { color: #888aaa; }
+    .song-list { list-style: none; }
+    .song-item { border-bottom: 1px solid #eeeeee; }
     .song-item a {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 14px 4px;
-      color: #e0e0ff;
+      color: #1B2F4E;
       text-decoration: none;
       font-family: sans-serif;
       font-size: 15px;
       transition: color 0.2s;
     }
-
-    .song-item a:hover {
-      color: #378add;
-    }
-
+    .song-item a:hover { color: #378add; }
     .song-item .artist {
       font-size: 12px;
       color: #888aaa;
       margin-top: 3px;
     }
-
-    .song-item .arrow {
-      color: #888aaa;
-      font-size: 18px;
-    }
-
+    .song-item .arrow { color: #888aaa; font-size: 18px; }
     .site-title {
       font-size: 26px;
-      font-weight: bold;
-      color: #e0e0ff;
-      font-family: sans-serif;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
     }
-
     .site-subtitle {
-      font-size: 13px;
-      color: #888aaa;
+      font-size: 11px;
+      color: #1B2F4E;
       margin-top: 4px;
-      font-family: sans-serif;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
-
     .no-result {
       text-align: center;
       color: #888aaa;
@@ -203,6 +175,36 @@
       font-size: 14px;
       display: none;
     }
+
+    /* ===== DARK MODE ===== */
+    body.dark {
+      background-color: #1a1a2e;
+      color: #c8c8e8;
+    }
+    body.dark .header { background: #16213e; border-color: #2a2a4a; }
+    body.dark .content { background: #1a1a2e; border-color: #2a2a4a; }
+    body.dark .song-item { border-color: #2a2a4a; }
+    body.dark .song-item a { color: #e0e0ff; }
+    body.dark .song-item .artist { color: #888aaa; }
+    body.dark .search-box { border-color: #2a2a4a; color: #e0e0ff; }
+    body.dark .search-box::placeholder { color: #888aaa; }
+    body.dark .site-subtitle { color: #888aaa; }
+    body.dark .btn-settings { background: #2a2a4a; border-color: #3a3a5a; }
+    body.dark .btn-settings .bar { background: #e0e0ff; }
+    body.dark .btn-settings:hover { background: #3a3a5a; }
+    body.dark .settings-panel { background: #16213e; border-color: #2a2a4a; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+    body.dark .settings-title { color: #888aaa; }
+    body.dark .settings-row { border-color: #2a2a4a; }
+    body.dark .settings-label { color: #c8c8e8; }
+    body.dark .toggle-wrap { background: #2a2a4a; }
+    body.dark .fc-btn { background: #2a2a4a; border-color: #3a3a5a; color: #e0e0ff; }
+    body.dark .fc-val { color: #e0e0ff; }
+
+    @media (max-width: 600px) {
+      .header-top img { height: 45px; }
+      .site-title { font-size: 16px !important; }
+      .site-subtitle { font-size: 8px !important; letter-spacing: 1px; }
+    }
   </style>
 </head>
 <body>
@@ -210,53 +212,50 @@
 
     <!-- ===== HEADER ===== -->
     <div class="header">
-  <div class="header-top">
-    <div>
-      <div class="site-title">🎸 Chord Site</div>
-      <div class="site-subtitle">Kumpulan chord lagu</div>
-    </div>
-    <!-- TOMBOL SETTINGS (belum diisi dulu) -->
-   <div style="position: relative;">
-  <button class="btn-settings" id="btn-settings" onclick="toggleSettings()" aria-label="Pengaturan">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
+      <div class="header-top">
+        <div>
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <img src="./logo.png" alt="SimfoniChord" style="height: 80px; width: auto;">
+            <div>
+              <div class="site-title">
+                <span style="color: #1B2F4E;">Simfoni</span><span style="color: #C9A84C;">Chord</span>
+              </div>
+              <div class="site-subtitle">Harmony in Praise</div>
+            </div>
+          </div>
+        </div>
 
-<!-- PANEL SETTINGS -->
-<div class="settings-panel" id="settings-panel">
-  <div class="settings-title">Pengaturan</div>
+        <div style="position: relative;">
+          <button class="btn-settings" id="btn-settings" onclick="toggleSettings()" aria-label="Pengaturan">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+          <div class="settings-panel" id="settings-panel">
+            <div class="settings-title">Pengaturan</div>
+            <div class="settings-row">
+              <div class="settings-label"><span>🌙</span> Mode Gelap</div>
+              <div class="toggle-wrap" onclick="toggleMode()" id="toggle-wrap">
+                <div class="toggle-ball" id="toggle-ball"></div>
+              </div>
+            </div>
+            <div class="settings-row">
+              <div class="settings-label"><span>A</span> Ukuran Font</div>
+              <div class="font-ctrl">
+                <button class="fc-btn" onclick="changeFont(-1)" id="fc-min">−</button>
+                <span class="fc-val" id="fc-val">12</span>
+                <button class="fc-btn" onclick="changeFont(1)" id="fc-plus">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div class="settings-row">
-    <div class="settings-label">
-      <span>🌙</span> Mode Gelap
-    </div>
-    <div class="toggle-wrap" onclick="toggleMode()" id="toggle-wrap">
-      <div class="toggle-ball" id="toggle-ball"></div>
-    </div>
-  </div>
-
-  <div class="settings-row">
-    <div class="settings-label">
-      <span>A</span> Ukuran Font
-    </div>
-    <div class="font-ctrl">
-      <button class="fc-btn" onclick="changeFont(-1)" id="fc-min">−</button>
-      <span class="fc-val" id="fc-val">12</span>
-      <button class="fc-btn" onclick="changeFont(1)" id="fc-plus">+</button>
-    </div>
-  </div>
-
-</div>
-</div>
-</div>
-
-      <!-- SEARCH BOX -->
-      <input 
-        class="search-box" 
-        type="text" 
-        id="search" 
-        placeholder="🔍 Cari judul lagu atau artis..."
+      <input
+        class="search-box"
+        type="text"
+        id="search"
+        placeholder="⌕  Cari judul lagu atau artis..."
         oninput="filterLagu()"
       >
     </div>
@@ -265,7 +264,6 @@
     <div class="content">
       <ul class="song-list" id="song-list">
 
-        <!-- TAMBAH LAGU BARU DI SINI -->
         <li class="song-item" data-title="Bapa Engkau Sungguh Baik" data-artist="Franky Sihombing">
           <a href="Lagu/Bapa-Engkau-sungguh-baik.html">
             <div>
@@ -277,44 +275,44 @@
         </li>
 
         <li class="song-item" data-title="Glory Glory Halleluya" data-artist="Lagu Rohani">
-         <a href="Lagu/Glory-glory-haleluyah.html">
-           <div>
-             <div>Glory Glory Halleluya</div>
-             <div class="artist">Lagu Rohani</div>
-           </div>
-           <span class="arrow">›</span>
+          <a href="Lagu/Glory-glory-haleluyah.html">
+            <div>
+              <div>Glory Glory Halleluya</div>
+              <div class="artist">Lagu Rohani</div>
+            </div>
+            <span class="arrow">›</span>
           </a>
         </li>
 
         <li class="song-item" data-title="Di Bawah Kepak SayapMu" data-artist="Robert & Lea Sutanto">
-         <a href="Lagu/Di-bawah-kepak-sayapmu.html">
-           <div>
+          <a href="Lagu/Di-bawah-kepak-sayapmu.html">
+            <div>
               <div>Di Bawah Kepak SayapMu</div>
-             <div class="artist">Robert & Lea Sutanto</div>
-           </div>
-           <span class="arrow">›</span>
+              <div class="artist">Robert & Lea Sutanto</div>
+            </div>
+            <span class="arrow">›</span>
           </a>
         </li>
 
-<li class="song-item" data-title="Oleh Darah Anak Domba" data-artist="Franky Sihombing">
-  <a href="Lagu/Oleh-darah-anak-domba.html">
-    <div>
-      <div>Oleh Darah Anak Domba</div>
-      <div class="artist">Franky Sihombing</div>
-    </div>
-    <span class="arrow">›</span>
-  </a>
-</li>
+        <li class="song-item" data-title="Oleh Darah Anak Domba" data-artist="Franky Sihombing">
+          <a href="Lagu/Oleh-darah-anak-domba.html">
+            <div>
+              <div>Oleh Darah Anak Domba</div>
+              <div class="artist">Franky Sihombing</div>
+            </div>
+            <span class="arrow">›</span>
+          </a>
+        </li>
 
-<li class="song-item" data-title="Allah Peduli" data-artist="Nikita">
-  <a href="Lagu/Allah-Peduli.html">
-    <div>
-      <div>Allah Peduli</div>
-      <div class="artist">Nikita</div>
-    </div>
-    <span class="arrow">›</span>
-  </a>
-</li>
+        <li class="song-item" data-title="Allah Peduli" data-artist="Nikita">
+          <a href="Lagu/Allah-Peduli.html">
+            <div>
+              <div>Allah Peduli</div>
+              <div class="artist">Nikita</div>
+            </div>
+            <span class="arrow">›</span>
+          </a>
+        </li>
 
       </ul>
       <div class="no-result" id="no-result">Lagu tidak ditemukan 😔</div>
@@ -322,76 +320,64 @@
 
   </div>
 
- <!-- ===== JAVASCRIPT ===== -->
-<script>
-  // ===== CARI LAGU =====
-  function filterLagu() {
-    const keyword = document.getElementById('search').value.toLowerCase();
-    const items = document.querySelectorAll('.song-item');
-    let found = 0;
+  <script>
+    // ===== CARI LAGU =====
+    function filterLagu() {
+      const keyword = document.getElementById('search').value.toLowerCase();
+      const items = document.querySelectorAll('.song-item');
+      let found = 0;
+      items.forEach(item => {
+        const title = item.getAttribute('data-title').toLowerCase();
+        const artist = item.getAttribute('data-artist').toLowerCase();
+        if (title.includes(keyword) || artist.includes(keyword)) {
+          item.style.display = '';
+          found++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      document.getElementById('no-result').style.display = found === 0 ? 'block' : 'none';
+    }
 
-    items.forEach(item => {
-      const title = item.getAttribute('data-title').toLowerCase();
-      const artist = item.getAttribute('data-artist').toLowerCase();
-      if (title.includes(keyword) || artist.includes(keyword)) {
-        item.style.display = '';
-        found++;
-      } else {
-        item.style.display = 'none';
+    // ===== SETTINGS PANEL =====
+    function toggleSettings() {
+      document.getElementById('settings-panel').classList.toggle('open');
+    }
+    document.addEventListener('click', function(e) {
+      const panel = document.getElementById('settings-panel');
+      const btn = document.getElementById('btn-settings');
+      if (panel && btn && !panel.contains(e.target) && !btn.contains(e.target)) {
+        panel.classList.remove('open');
       }
     });
 
-    document.getElementById('no-result').style.display = found === 0 ? 'block' : 'none';
-  }
-
-  // ===== SETTINGS PANEL =====
-  function toggleSettings() {
-    document.getElementById('settings-panel').classList.toggle('open');
-  }
-
-  // Tutup panel kalau klik di luar
-  document.addEventListener('click', function(e) {
-    const panel = document.getElementById('settings-panel');
-    const btn = document.getElementById('btn-settings');
-    if (panel && btn && !panel.contains(e.target) && !btn.contains(e.target)) {
-      panel.classList.remove('open');
+    // ===== DARK MODE =====
+    function toggleMode() {
+      document.body.classList.toggle('dark');
+      document.getElementById('toggle-wrap').classList.toggle('active');
+      localStorage.setItem('theme-index', document.body.classList.contains('dark') ? 'dark' : 'light');
     }
-  });
+    if (localStorage.getItem('theme-index') === 'dark') {
+      document.body.classList.add('dark');
+      document.getElementById('toggle-wrap').classList.add('active');
+    }
 
-  // ===== DARK/LIGHT MODE =====
-function toggleMode() {
-  document.body.classList.toggle('light');
-  document.getElementById('toggle-wrap').classList.toggle('active');
-  localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
-}
-
-// Load saved theme
-if (localStorage.getItem('theme') === 'light') {
-  document.body.classList.add('light');
-  document.getElementById('toggle-wrap').classList.add('active');
-}
-
-// ===== FONT SIZE (sistem Word) =====
-const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72];
-let fontIdx = 4; // default = 12
-
-const savedIdx = localStorage.getItem('fontIdx');
-if (savedIdx !== null) fontIdx = parseInt(savedIdx);
-
-function applyFont() {
-  document.body.style.fontSize = fontSizes[fontIdx] + 'px';
-  document.getElementById('fc-val').textContent = fontSizes[fontIdx];
-  document.getElementById('fc-min').disabled = fontIdx === 0;
-  document.getElementById('fc-plus').disabled = fontIdx === fontSizes.length - 1;
-}
-
-function changeFont(d) {
-  fontIdx = Math.min(fontSizes.length - 1, Math.max(0, fontIdx + d));
-  localStorage.setItem('fontIdx', fontIdx);
-  applyFont();
-}
-
-applyFont();
-</script>
+    // ===== FONT SIZE =====
+    const fontSizes = [8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72];
+    let fontIdx = 4;
+    const savedIdx = localStorage.getItem('fontIdx');
+    if (savedIdx !== null) fontIdx = parseInt(savedIdx);
+    function applyFont() {
+      document.getElementById('fc-val').textContent = fontSizes[fontIdx];
+      document.getElementById('fc-min').disabled = fontIdx === 0;
+      document.getElementById('fc-plus').disabled = fontIdx === fontSizes.length - 1;
+    }
+    function changeFont(d) {
+      fontIdx = Math.min(fontSizes.length - 1, Math.max(0, fontIdx + d));
+      localStorage.setItem('fontIdx', fontIdx);
+      applyFont();
+    }
+    applyFont();
+  </script>
 </body>
 </html>

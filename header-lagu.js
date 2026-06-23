@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="settings-panel" id="settings-panel">
           <div class="settings-title">Pengaturan</div>
           <div class="settings-row">
-            <div class="settings-label"><span>🌙</span> Mode Gelap</div>
+            <div class="settings-label"><span> </span> Mode Gelap </div>
             <div class="toggle-wrap" onclick="toggleMode()" id="toggle-wrap">
               <div class="toggle-ball" id="toggle-ball"></div>
             </div>

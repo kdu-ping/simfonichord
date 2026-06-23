@@ -200,6 +200,55 @@
     body.dark .fc-btn { background: #2a2a4a; border-color: #3a3a5a; color: #e0e0ff; }
     body.dark .fc-val { color: #e0e0ff; }
 
+    .menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.menu-card {
+  background: var(--color-background-primary, #ffffff);
+  border: 0.5px solid #dddddd;
+  border-radius: 12px;
+  padding: 16px 14px;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.menu-card:hover { border-color: #aaaaaa; }
+.menu-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.menu-icon.blue { background: #E6F1FB; }
+.menu-icon.amber { background: #FAEEDA; }
+.menu-icon.teal { background: #E1F5EE; }
+.menu-icon.purple { background: #EEEDFE; }
+.menu-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1B2F4E;
+  margin-bottom: 3px;
+  font-family: sans-serif;
+}
+.menu-desc {
+  font-size: 11px;
+  color: #888aaa;
+  font-family: sans-serif;
+}
+.section-back {
+  font-size: 14px;
+  color: #888aaa;
+  cursor: pointer;
+  padding: 0 0 14px;
+  font-family: sans-serif;
+}
+.section-back:hover { color: #1B2F4E; }
+
     @media (max-width: 600px) {
       .header-top img { height: 45px; }
       .site-title { font-size: 16px !important; }
@@ -260,63 +309,94 @@
       >
     </div>
 
-    <!-- ===== LIST LAGU ===== -->
-    <div class="content">
-      <ul class="song-list" id="song-list">
+    <!-- ===== MENU UTAMA ===== -->
+<div class="content" id="menu-utama">
+  <div class="menu-grid">
 
-        <li class="song-item" data-title="Bapa Engkau Sungguh Baik" data-artist="Franky Sihombing">
-          <a href="Lagu/Bapa-Engkau-sungguh-baik.html">
-            <div>
-              <div>Bapa Engkau Sungguh Baik</div>
-              <div class="artist">Franky Sihombing</div>
-            </div>
-            <span class="arrow">›</span>
-          </a>
-        </li>
-
-        <li class="song-item" data-title="Glory Glory Halleluya" data-artist="Lagu Rohani">
-          <a href="Lagu/Glory-glory-haleluyah.html">
-            <div>
-              <div>Glory Glory Halleluya</div>
-              <div class="artist">Lagu Rohani</div>
-            </div>
-            <span class="arrow">›</span>
-          </a>
-        </li>
-
-        <li class="song-item" data-title="Di Bawah Kepak SayapMu" data-artist="Robert & Lea Sutanto">
-          <a href="Lagu/Di-bawah-kepak-sayapmu.html">
-            <div>
-              <div>Di Bawah Kepak SayapMu</div>
-              <div class="artist">Robert & Lea Sutanto</div>
-            </div>
-            <span class="arrow">›</span>
-          </a>
-        </li>
-
-        <li class="song-item" data-title="Oleh Darah Anak Domba" data-artist="Franky Sihombing">
-          <a href="Lagu/Oleh-darah-anak-domba.html">
-            <div>
-              <div>Oleh Darah Anak Domba</div>
-              <div class="artist">Franky Sihombing</div>
-            </div>
-            <span class="arrow">›</span>
-          </a>
-        </li>
-
-        <li class="song-item" data-title="Allah Peduli" data-artist="Nikita">
-          <a href="Lagu/Allah-Peduli.html">
-            <div>
-              <div>Allah Peduli</div>
-              <div class="artist">Nikita</div>
-            </div>
-            <span class="arrow">›</span>
-          </a>
-        </li>
-
-      </ul>
-      <div class="no-result" id="no-result">Lagu tidak ditemukan 😔</div>
+    <div class="menu-card" onclick="showSection('daftar-lagu')">
+      <div class="menu-icon blue">♪</div>
+      <div class="menu-name">Daftar Lagu</div>
+      <div class="menu-desc">5 lagu tersedia</div>
     </div>
+
+    <div class="menu-card" onclick="showSection('praise-worship')">
+      <div class="menu-icon amber">🙌</div>
+      <div class="menu-name">Praise & Worship</div>
+      <div class="menu-desc">Lagu pujian rohani</div>
+    </div>
+
+    <div class="menu-card" onclick="showSection('kunci-gitar')">
+      <div class="menu-icon teal">🎸</div>
+      <div class="menu-name">Kunci Gitar</div>
+      <div class="menu-desc">Filter per kunci</div>
+    </div>
+
+    <div class="menu-card" onclick="showSection('terbaru')">
+      <div class="menu-icon purple">✨</div>
+      <div class="menu-name">Terbaru</div>
+      <div class="menu-desc">Lagu baru ditambahkan</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== DAFTAR LAGU ===== -->
+<div class="content" id="daftar-lagu" style="display:none;">
+  <div class="section-back" onclick="showMenu()">← Kembali</div>
+  <ul class="song-list" id="song-list">
+
+    <li class="song-item" data-title="Bapa Engkau Sungguh Baik" data-artist="Franky Sihombing">
+      <a href="Lagu/Bapa-Engkau-sungguh-baik.html">
+        <div><div>Bapa Engkau Sungguh Baik</div><div class="artist">Franky Sihombing</div></div>
+        <span class="arrow">›</span>
+      </a>
+    </li>
+    <li class="song-item" data-title="Glory Glory Halleluya" data-artist="Lagu Rohani">
+      <a href="Lagu/Glory-glory-haleluyah.html">
+        <div><div>Glory Glory Halleluya</div><div class="artist">Lagu Rohani</div></div>
+        <span class="arrow">›</span>
+      </a>
+    </li>
+    <li class="song-item" data-title="Di Bawah Kepak SayapMu" data-artist="Robert & Lea Sutanto">
+      <a href="Lagu/Di-bawah-kepak-sayapmu.html">
+        <div><div>Di Bawah Kepak SayapMu</div><div class="artist">Robert & Lea Sutanto</div></div>
+        <span class="arrow">›</span>
+      </a>
+    </li>
+    <li class="song-item" data-title="Oleh Darah Anak Domba" data-artist="Franky Sihombing">
+      <a href="Lagu/Oleh-darah-anak-domba.html">
+        <div><div>Oleh Darah Anak Domba</div><div class="artist">Franky Sihombing</div></div>
+        <span class="arrow">›</span>
+      </a>
+    </li>
+    <li class="song-item" data-title="Allah Peduli" data-artist="Nikita">
+      <a href="Lagu/Allah-Peduli.html">
+        <div><div>Allah Peduli</div><div class="artist">Nikita</div></div>
+        <span class="arrow">›</span>
+      </a>
+    </li>
+
+  </ul>
+  <div class="no-result" id="no-result">Lagu tidak ditemukan 😔</div>
+</div>
+
+<!-- ===== PRAISE & WORSHIP ===== -->
+<div class="content" id="praise-worship" style="display:none;">
+  <div class="section-back" onclick="showMenu()">← Kembali</div>
+  <p style="color: var(--color-text-secondary); font-family: sans-serif; font-size: 14px; padding: 20px 0; text-align: center;">Segera hadir 🙌</p>
+</div>
+
+<!-- ===== KUNCI GITAR ===== -->
+<div class="content" id="kunci-gitar" style="display:none;">
+  <div class="section-back" onclick="showMenu()">← Kembali</div>
+  <p style="color: var(--color-text-secondary); font-family: sans-serif; font-size: 14px; padding: 20px 0; text-align: center;">Segera hadir 🎸</p>
+</div>
+
+<!-- ===== TERBARU ===== -->
+<div class="content" id="terbaru" style="display:none;">
+  <div class="section-back" onclick="showMenu()">← Kembali</div>
+  <p style="color: var(--color-text-secondary); font-family: sans-serif; font-size: 14px; padding: 20px 0; text-align: center;">Segera hadir ✨</p>
+</div>
 
   </div>
 
@@ -378,6 +458,25 @@
       applyFont();
     }
     applyFont();
+
+    // ===== NAVIGASI MENU =====
+function showSection(id) {
+  document.getElementById('menu-utama').style.display = 'none';
+  document.getElementById('daftar-lagu').style.display = 'none';
+  document.getElementById('praise-worship').style.display = 'none';
+  document.getElementById('kunci-gitar').style.display = 'none';
+  document.getElementById('terbaru').style.display = 'none';
+  document.getElementById(id).style.display = 'block';
+}
+
+function showMenu() {
+  document.getElementById('menu-utama').style.display = 'block';
+  document.getElementById('daftar-lagu').style.display = 'none';
+  document.getElementById('praise-worship').style.display = 'none';
+  document.getElementById('kunci-gitar').style.display = 'none';
+  document.getElementById('terbaru').style.display = 'none';
+}
+
   </script>
 </body>
 </html>

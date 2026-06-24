@@ -103,51 +103,64 @@ body {
   white-space: pre;
 }
 
-/* ===== LIGHT MODE ===== */
-body.light {
-  background-color: #f5f5f5;
-  color: #333333;
+/* ===== DARK MODE (halaman lagu) ===== */
+body.dark {
+  background-color: #1a1a2e;
+  color: #c8c8e8;
 }
 
-body.light .header {
-  background: #ffffff;
-  border-bottom: 1px solid #dddddd;
+body.dark .header {
+  background: #16213e;
+  border-bottom: 1px solid #2a2a4a;
 }
 
-body.light .song-title {
-  color: #1a1a2e;
+body.dark .song-title {
+  color: #e0e0ff;
 }
 
-body.light .song-artist {
-  color: #555555;
+body.dark .song-artist {
+  color: #888aaa;
 }
 
-body.light .key-btn {
-  background: #e0e0e0;
-  color: #333333;
+body.dark .key-btn {
+  background: #2a2a4a;
+  color: #e0e0ff;
 }
 
-body.light .key-btn.active {
+body.dark .key-btn.active {
   background: #378add;
   color: #fff;
 }
 
-body.light .content {
-  background: #ffffff;
-  border: 1px solid #dddddd;
+body.dark .content {
+  background: #1a1a2e;
+  border: 1px solid #2a2a4a;
 }
 
-body.light .section-label {
-  color: #888888;
+body.dark .section-label {
+  color: #888aaa;
 }
 
-body.light .chord {
-  color: #c0392b;
+body.dark .chord {
+  color: #f5a623;
 }
 
-body.light .lyric {
-  color: #333333;
+body.dark .lyric {
+  color: #c8c8e8;
 }
+
+body.dark .btn-settings { background: #2a2a4a; border-color: #3a3a5a; }
+body.dark .btn-settings .bar { background: #e0e0ff; }
+body.dark .btn-settings:hover { background: #3a3a5a; }
+body.dark .settings-panel { background: #16213e; border-color: #2a2a4a; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+body.dark .settings-row { border-color: #2a2a4a; }
+body.dark .settings-label { color: #c8c8e8; }
+body.dark .settings-title { color: #888aaa; }
+body.dark .toggle-wrap { background: #2a2a4a; }
+body.dark .toggle-wrap.active { background: #378add; }
+body.dark .fc-btn { background: #2a2a4a; border-color: #3a3a5a; color: #e0e0ff; }
+body.dark .fc-btn:hover { background: #3a3a5a; }
+body.dark .fc-val { color: #e0e0ff; }
 
 /* ===== MOBILE ===== */
 @media (max-width: 600px) {
@@ -325,31 +338,5 @@ body.light .fc-btn { background: #e0e0e0; border-color: #cccccc; color: #1a1a2e;
 body.light .fc-btn:hover { background: #d0d0d0; }
 body.light .fc-val { color: #1a1a2e; }
 
-/* ===== DARK MODE INDEX ===== */
-body.dark {
-  background-color: #1a1a2e;
-  color: #c8c8e8;
-}
 
-body.dark .header {
-  background: #16213e;
-  border-bottom: 1px solid #2a2a4a;
-}
-
-body.dark .content {
-  background: #1a1a2e;
-  border-color: #2a2a4a;
-}
-
-body.dark .song-item { border-color: #2a2a4a; }
-body.dark .song-item a { color: #e0e0ff; }
-body.dark .song-item .artist { color: #888aaa; }
-body.dark .search-box { border-color: #2a2a4a; color: #e0e0ff; }
-body.dark .search-box::placeholder { color: #888aaa; }
-body.dark .site-subtitle { color: #888aaa; }
-body.dark .btn-settings { background: #2a2a4a; border-color: #3a3a5a; }
-body.dark .btn-settings .bar { background: #e0e0ff; }
-body.dark .settings-panel { background: #16213e; border-color: #2a2a4a; }
-body.dark .settings-row { border-color: #2a2a4a; }
-body.dark .settings-label { color: #c8c8e8; }
 

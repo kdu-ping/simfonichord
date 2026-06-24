@@ -6,6 +6,7 @@
   <title>SimfoniChord</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="daftar-lagu.js"></script>
   <style>
     .header-top {
       display: flex;
@@ -344,38 +345,6 @@
 <div class="content" id="daftar-lagu" style="display:none;">
   <div class="section-back" onclick="showMenu()">← Kembali</div>
   <ul class="song-list" id="song-list">
-
-    <li class="song-item" data-title="Bapa Engkau Sungguh Baik" data-artist="Franky Sihombing">
-      <a href="Lagu/Bapa-Engkau-sungguh-baik.html">
-        <div><div>Bapa Engkau Sungguh Baik</div><div class="artist">Franky Sihombing</div></div>
-        <span class="arrow">›</span>
-      </a>
-    </li>
-    <li class="song-item" data-title="Glory Glory Halleluya" data-artist="Lagu Rohani">
-      <a href="Lagu/Glory-glory-haleluyah.html">
-        <div><div>Glory Glory Halleluya</div><div class="artist">Lagu Rohani</div></div>
-        <span class="arrow">›</span>
-      </a>
-    </li>
-    <li class="song-item" data-title="Di Bawah Kepak SayapMu" data-artist="Robert & Lea Sutanto">
-      <a href="Lagu/Di-bawah-kepak-sayapmu.html">
-        <div><div>Di Bawah Kepak SayapMu</div><div class="artist">Robert & Lea Sutanto</div></div>
-        <span class="arrow">›</span>
-      </a>
-    </li>
-    <li class="song-item" data-title="Oleh Darah Anak Domba" data-artist="Franky Sihombing">
-      <a href="Lagu/Oleh-darah-anak-domba.html">
-        <div><div>Oleh Darah Anak Domba</div><div class="artist">Franky Sihombing</div></div>
-        <span class="arrow">›</span>
-      </a>
-    </li>
-    <li class="song-item" data-title="Allah Peduli" data-artist="Nikita">
-      <a href="Lagu/Allah-Peduli.html">
-        <div><div>Allah Peduli</div><div class="artist">Nikita</div></div>
-        <span class="arrow">›</span>
-      </a>
-    </li>
-
   </ul>
   <div class="no-result" id="no-result">Lagu tidak ditemukan 😔</div>
 </div>
@@ -403,21 +372,24 @@
   <script>
     // ===== CARI LAGU =====
     function filterLagu() {
-      const keyword = document.getElementById('search').value.toLowerCase();
-      const items = document.querySelectorAll('.song-item');
-      let found = 0;
-      items.forEach(item => {
-        const title = item.getAttribute('data-title').toLowerCase();
-        const artist = item.getAttribute('data-artist').toLowerCase();
-        if (title.includes(keyword) || artist.includes(keyword)) {
-          item.style.display = '';
-          found++;
-        } else {
-          item.style.display = 'none';
-        }
-      });
-      document.getElementById('no-result').style.display = found === 0 ? 'block' : 'none';
-    }
+  const keyword = document.getElementById('search').value.toLowerCase();
+  if (keyword) {
+    showSection('daftar-lagu');
+    const items = document.querySelectorAll('.song-item');
+    let found = 0;
+    items.forEach(item => {
+      const title = item.getAttribute('data-title').toLowerCase();
+      const artist = item.getAttribute('data-artist').toLowerCase();
+      if (title.includes(keyword) || artist.includes(keyword)) {
+        item.style.display = '';
+        found++;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+    document.getElementById('no-result').style.display = found === 0 ? 'block' : 'none';
+  }
+}
 
     // ===== SETTINGS PANEL =====
     function toggleSettings() {
@@ -459,7 +431,31 @@
     }
     applyFont();
 
-    // ===== NAVIGASI MENU =====
+    // ===== RENDER LAGU OTOMATIS =====
+function renderLagu(filter) {
+  const list = document.getElementById('song-list');
+  const noResult = document.getElementById('no-result');
+  let lagu = filter ? daftarLagu.filter(filter) : daftarLagu;
+  
+  list.innerHTML = lagu.map(l => `
+    <li class="song-item" data-title="${l.title}" data-artist="${l.artist}">
+      <a href="Lagu/${l.file}.html">
+        <div>
+          <div>${l.title}</div>
+          <div class="artist">${l.artist}</div>
+        </div>
+        <span class="arrow">›</span>
+      </a>
+    </li>
+  `).join('');
+
+  noResult.style.display = lagu.length === 0 ? 'block' : 'none';
+
+  // update jumlah lagu di menu card
+  document.querySelector('.menu-card:first-child .menu-desc').textContent = daftarLagu.length + ' lagu tersedia';
+}
+
+// render saat daftar lagu dibuka
 function showSection(id) {
   document.getElementById('menu-utama').style.display = 'none';
   document.getElementById('daftar-lagu').style.display = 'none';
@@ -467,14 +463,20 @@ function showSection(id) {
   document.getElementById('kunci-gitar').style.display = 'none';
   document.getElementById('terbaru').style.display = 'none';
   document.getElementById(id).style.display = 'block';
+
+  if (id === 'daftar-lagu') renderLagu();
+  if (id === 'praise-worship') renderLagu(l => l.kategori === 'praise' || l.kategori === 'worship');
+  if (id === 'terbaru') renderLagu(l => l.terbaru === true);
 }
 
+    // ===== NAVIGASI MENU =====
 function showMenu() {
   document.getElementById('menu-utama').style.display = 'block';
   document.getElementById('daftar-lagu').style.display = 'none';
   document.getElementById('praise-worship').style.display = 'none';
   document.getElementById('kunci-gitar').style.display = 'none';
   document.getElementById('terbaru').style.display = 'none';
+  document.getElementById('search').value = '';
 }
 
   </script>

@@ -13,13 +13,13 @@ document.addEventListener('click', function(e) {
 
 // ===== DARK/LIGHT MODE =====
 function toggleMode() {
-  document.body.classList.toggle('light');
+  document.body.classList.toggle('dark');
   const toggleWrap = document.getElementById('toggle-wrap');
   if (toggleWrap) toggleWrap.classList.toggle('active');
-  localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+  localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
 }
-if (localStorage.getItem('theme') === 'light') {
-  document.body.classList.add('light');
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark');
   const toggleWrap = document.getElementById('toggle-wrap');
   if (toggleWrap) toggleWrap.classList.add('active');
 }

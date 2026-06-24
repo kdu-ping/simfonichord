@@ -42,7 +42,6 @@ function transposeChord(chord, steps) {
   const bassRaw = chord.includes('/') ? chord.split('/')[1] : '';
   const chordOnly = chord.split('/')[0];
   
-  // Ambil base note (1-2 karakter)
   const match = chordOnly.match(/^[A-G][#b]?/);
   if (!match) return chord;
   
@@ -60,20 +59,4 @@ function transposeChord(chord, steps) {
     return newBase + suffix + '/' + chords[bassIdx];
   }
   return newBase + suffix;
-}
-// FUNGSI DARK/LIGHT MODE
-function toggleMode() {
-  document.body.classList.toggle('light');
-  const ball = document.getElementById('toggle-ball');
-  const moon = document.getElementById('icon-moon');
-  const sun = document.getElementById('icon-sun');
-  if (document.body.classList.contains('light')) {
-    ball.style.left = '21px';
-    moon.style.color = '#888aaa';
-    sun.style.color = '#1a1a2e';
-  } else {
-    ball.style.left = '3px';
-    moon.style.color = '#e0e0ff';
-    sun.style.color = '#888aaa';
-  }
 }

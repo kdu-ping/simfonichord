@@ -10,155 +10,101 @@
   <div class="container">
 
     <!-- ===== HEADER ===== -->
-    <div class="header">
-
-      <!-- TOMBOL BACK + MODE dalam satu baris -->
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-
-        <!-- TOMBOL BACK -->
-        <a href="../index.html" style="text-decoration: none; color: #888aaa; font-size: 28px;">&#11013;</a>
-
-        <!-- TOMBOL SETTINGS -->
-<div style="position: relative;">
-  <button class="btn-settings" id="btn-settings" onclick="toggleSettings()" aria-label="Pengaturan">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
-  <div class="settings-panel" id="settings-panel">
-    <div class="settings-title">Pengaturan</div>
-    <div class="settings-row">
-      <div class="settings-label"><span>🌙</span> Mode Gelap</div>
-      <div class="toggle-wrap" onclick="toggleMode()" id="toggle-wrap">
-        <div class="toggle-ball" id="toggle-ball"></div>
-      </div>
-    </div>
-    <div class="settings-row">
-      <div class="settings-label"><span>A</span> Ukuran Font</div>
-      <div class="font-ctrl">
-        <button class="fc-btn" onclick="changeFont(-1)" id="fc-min">−</button>
-        <span class="fc-val" id="fc-val">12</span>
-        <button class="fc-btn" onclick="changeFont(1)" id="fc-plus">+</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-      </div>
-
-      <div class="song-title">Di Bawah Kepak SayapMu</div>
-      <div class="song-artist">Robert & Lea Sutanto</div>
-
-      <!-- TOMBOL TRANSPOSE -->
-      <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px;">
-        <button onclick="setKey('A')"  class="key-btn" id="key-A">A</button>
-        <button onclick="setKey('Bb')" class="key-btn" id="key-Bb">Bb</button>
-        <button onclick="setKey('B')"  class="key-btn" id="key-B">B</button>
-        <button onclick="setKey('C')"  class="key-btn" id="key-C">C</button>
-        <button onclick="setKey('C#')" class="key-btn" id="key-C#">C#</button>
-        <button onclick="setKey('D')"  class="key-btn" id="key-D">D</button>
-        <button onclick="setKey('D#')" class="key-btn" id="key-D#">D#</button>
-        <button onclick="setKey('E')"  class="key-btn" id="key-E">E</button>
-        <button onclick="setKey('F')"  class="key-btn" id="key-F">F</button>
-        <button onclick="setKey('F#')" class="key-btn" id="key-F#">F#</button>
-        <button onclick="setKey('G')"  class="key-btn" id="key-G">G</button>
-        <button onclick="setKey('G#')" class="key-btn" id="key-G#">G#</button>
-      </div>
-    </div>
+    <div class="header" id="header-lagu"></div>
 
     <!-- ===== KONTEN LIRIK ===== -->
     <div class="content">
 
-      <!-- GANTI SECTION DAN LIRIK DI BAWAH INI -->
-
       <!-- VERSE -->
-<div class="section-label">Verse</div>
+      <div class="section-label">Verse</div>
 
-<div class="line">
-  <div class="token"><span class="chord" id="c0"> </span><span class="lyric">Aku Ingin </span></div>
-  <div class="token"><span class="chord" id="c1">Dm7</span><span class="lyric">Selalu Berada </span></div>
-  <div class="token"><span class="chord" id="c2">G</span><span class="lyric">Di Hadirat-</span></div>
-  <div class="token"><span class="chord" id="c3">Cmaj7</span><span class="lyric">Mu   </span></div>
-  <div class="token"><span class="chord" id="c4">A7</span><span class="lyric">  </span></div>
-</div>
+      <div class="line">
+        <div class="token"><span class="chord" id="c0"> </span><span class="lyric">Aku Ingin </span></div>
+        <div class="token"><span class="chord" id="c1">Dm7</span><span class="lyric">Selalu Berada </span></div>
+        <div class="token"><span class="chord" id="c2">G</span><span class="lyric">Di Hadirat-</span></div>
+        <div class="token"><span class="chord" id="c3">Cmaj7</span><span class="lyric">Mu   </span></div>
+        <div class="token"><span class="chord" id="c4">A7</span><span class="lyric">  </span></div>
+      </div>
 
-<div class="line">
-  <div class="token"><span class="chord" id="c5"> </span><span class="lyric">Aku Ingin </span></div>
-  <div class="token"><span class="chord" id="c6">Dm7</span><span class="lyric">Selalu Berlindung </span></div>
-  <div class="token"><span class="chord" id="c7">G</span><span class="lyric">Dalam Naungan-</span></div>
-  <div class="token"><span class="chord" id="c8">Gm7</span><span class="lyric">Mu </span></div>
-  <div class="token"><span class="chord" id="c9">C9</span><span class="lyric"> </span></div>
-</div>
+      <div class="line">
+        <div class="token"><span class="chord" id="c5"> </span><span class="lyric">Aku Ingin </span></div>
+        <div class="token"><span class="chord" id="c6">Dm7</span><span class="lyric">Selalu Berlindung </span></div>
+        <div class="token"><span class="chord" id="c7">G</span><span class="lyric">Dalam Naungan-</span></div>
+        <div class="token"><span class="chord" id="c8">Gm7</span><span class="lyric">Mu </span></div>
+        <div class="token"><span class="chord" id="c9">C9</span><span class="lyric"> </span></div>
+      </div>
 
-<div class="line">
-  <div class="token"><span class="chord" id="c10"> </span><span class="lyric">Di Bawah </span></div>
-  <div class="token"><span class="chord" id="c11">F</span><span class="lyric">Kepak Sayap-Mu, </span></div>
-  <div class="token"><span class="chord" id="c12">G/F</span><span class="lyric">Kau Bawaku </span></div>
-  <div class="token"><span class="chord" id="c13">Em7</span><span class="lyric">Terbang </span></div>
-  <div class="token"><span class="chord" id="c14">A7</span><span class="lyric">Tinggi</span></div>
-</div>
+      <div class="line">
+        <div class="token"><span class="chord" id="c10"> </span><span class="lyric">Di Bawah </span></div>
+        <div class="token"><span class="chord" id="c11">F</span><span class="lyric">Kepak Sayap-Mu, </span></div>
+        <div class="token"><span class="chord" id="c12">G/F</span><span class="lyric">Kau Bawaku </span></div>
+        <div class="token"><span class="chord" id="c13">Em7</span><span class="lyric">Terbang </span></div>
+        <div class="token"><span class="chord" id="c14">A7</span><span class="lyric">Tinggi</span></div>
+      </div>
 
-<div class="line">
-  <div class="token"><span class="chord" id="c15"> </span><span class="lyric">Melintasi </span></div>
-  <div class="token"><span class="chord" id="c16">Dm7</span><span class="lyric">Langit Biru </span></div>
-  <div class="token"><span class="chord" id="c17">G11</span><span class="lyric">Bagaikan </span></div>
-  <div class="token"><span class="chord" id="c18">Cmaj7</span><span class="lyric">Rajawali</span></div>
-</div>
+      <div class="line">
+        <div class="token"><span class="chord" id="c15"> </span><span class="lyric">Melintasi </span></div>
+        <div class="token"><span class="chord" id="c16">Dm7</span><span class="lyric">Langit Biru </span></div>
+        <div class="token"><span class="chord" id="c17">G11</span><span class="lyric">Bagaikan </span></div>
+        <div class="token"><span class="chord" id="c18">Cmaj7</span><span class="lyric">Rajawali</span></div>
+      </div>
 
-<!-- REFF -->
-<div class="section-label">Reff</div>
+      <!-- REFF -->
+      <div class="section-label">Reff</div>
 
-<div class="line">
-  <div class="token"><span class="chord" id="c19"> </span><span class="lyric">Bagai </span></div>
-  <div class="token"><span class="chord" id="c20">Dm7</span><span class="lyric">Rajawali Melintasi </span></div>
-  <div class="token"><span class="chord" id="c21">G</span><span class="lyric">Gunung </span></div>
-  <div class="token"><span class="chord" id="c22">Cmaj7</span><span class="lyric">Tinggi </span></div>
-  <div class="token"><span class="chord" id="c23">A7</span><span class="lyric"> </span></div>
-</div>
+      <div class="line">
+        <div class="token"><span class="chord" id="c19"> </span><span class="lyric">Bagai </span></div>
+        <div class="token"><span class="chord" id="c20">Dm7</span><span class="lyric">Rajawali Melintasi </span></div>
+        <div class="token"><span class="chord" id="c21">G</span><span class="lyric">Gunung </span></div>
+        <div class="token"><span class="chord" id="c22">Cmaj7</span><span class="lyric">Tinggi </span></div>
+        <div class="token"><span class="chord" id="c23">A7</span><span class="lyric"> </span></div>
+      </div>
 
-<div class="line">
-  <div class="token"><span class="chord" id="c24"> </span><span class="lyric">Bagai </span></div>
-  <div class="token"><span class="chord" id="c25">Dm7</span><span class="lyric">Rajawali Melintasi </span></div>
-  <div class="token"><span class="chord" id="c26">G</span><span class="lyric">Badai </span></div>
-  <div class="token"><span class="chord" id="c27">Gm7</span><span class="lyric">Hidup </span></div>
-  <div class="token"><span class="chord" id="c28">C9</span><span class="lyric"> </span></div>
-</div>
+      <div class="line">
+        <div class="token"><span class="chord" id="c24"> </span><span class="lyric">Bagai </span></div>
+        <div class="token"><span class="chord" id="c25">Dm7</span><span class="lyric">Rajawali Melintasi </span></div>
+        <div class="token"><span class="chord" id="c26">G</span><span class="lyric">Badai </span></div>
+        <div class="token"><span class="chord" id="c27">Gm7</span><span class="lyric">Hidup </span></div>
+        <div class="token"><span class="chord" id="c28">C9</span><span class="lyric"> </span></div>
+      </div>
 
-<div class="line">
-  <div class="token"><span class="chord" id="c29"> </span><span class="lyric">Di Bawah </span></div>
-  <div class="token"><span class="chord" id="c30">F</span><span class="lyric">Kepak Sayap-Mu, </span></div>
-  <div class="token"><span class="chord" id="c31">G/F</span><span class="lyric">Kau Bawaku </span></div>
-  <div class="token"><span class="chord" id="c32">Em7</span><span class="lyric">Terbang </span></div>
-  <div class="token"><span class="chord" id="c33">A7</span><span class="lyric">Tinggi</span></div>
-</div>
+      <div class="line">
+        <div class="token"><span class="chord" id="c29"> </span><span class="lyric">Di Bawah </span></div>
+        <div class="token"><span class="chord" id="c30">F</span><span class="lyric">Kepak Sayap-Mu, </span></div>
+        <div class="token"><span class="chord" id="c31">G/F</span><span class="lyric">Kau Bawaku </span></div>
+        <div class="token"><span class="chord" id="c32">Em7</span><span class="lyric">Terbang </span></div>
+        <div class="token"><span class="chord" id="c33">A7</span><span class="lyric">Tinggi</span></div>
+      </div>
 
-<div class="line">
-  <div class="token"><span class="chord" id="c34"> </span><span class="lyric">Melintasi </span></div>
-  <div class="token"><span class="chord" id="c35">Dm7</span><span class="lyric">Langit Biru </span></div>
-  <div class="token"><span class="chord" id="c36">G11</span><span class="lyric">Bagaikan </span></div>
-  <div class="token"><span class="chord" id="c37">Cmaj7</span><span class="lyric">Rajawali</span></div>
-</div>
-      <!-- tambah .line sesuai kebutuhan -->
+      <div class="line">
+        <div class="token"><span class="chord" id="c34"> </span><span class="lyric">Melintasi </span></div>
+        <div class="token"><span class="chord" id="c35">Dm7</span><span class="lyric">Langit Biru </span></div>
+        <div class="token"><span class="chord" id="c36">G11</span><span class="lyric">Bagaikan </span></div>
+        <div class="token"><span class="chord" id="c37">Cmaj7</span><span class="lyric">Rajawali</span></div>
+      </div>
 
     </div>
   </div>
 
   <!-- ===== JAVASCRIPT ===== -->
   <script>
-  const originalChords = {
-    c0: '',      c1: 'Dm7',   c2: 'G',     c3: 'Cmaj7', c4: 'A7',
-    c5: '',      c6: 'Dm7',   c7: 'G',     c8: 'Gm7',   c9: 'C9',
-    c10: '',     c11: 'F',    c12: 'G/F',  c13: 'Em7',  c14: 'A7',
-    c15: '',     c16: 'Dm7',  c17: 'G11',  c18: 'Cmaj7',
-    c19: '',     c20: 'Dm7',  c21: 'G',    c22: 'Cmaj7', c23: 'A7',
-    c24: '',     c25: 'Dm7',  c26: 'G',    c27: 'Gm7',  c28: 'C9',
-    c29: '',     c30: 'F',    c31: 'G/F',  c32: 'Em7',  c33: 'A7',
-    c34: '',     c35: 'Dm7',  c36: 'G11',  c37: 'Cmaj7'
-  };
+    const songInfo = { title: 'Di Bawah Kepak SayapMu', artist: 'Robert & Lea Sutanto' };
 
-  const rootKey = 'C';
-</script>
-<script src="../script.js"></script>
-<script src="../settings.js"></script>
+    const originalChords = {
+      c0: '',      c1: 'Dm7',   c2: 'G',     c3: 'Cmaj7', c4: 'A7',
+      c5: '',      c6: 'Dm7',   c7: 'G',     c8: 'Gm7',   c9: 'C9',
+      c10: '',     c11: 'F',    c12: 'G/F',  c13: 'Em7',  c14: 'A7',
+      c15: '',     c16: 'Dm7',  c17: 'G11',  c18: 'Cmaj7',
+      c19: '',     c20: 'Dm7',  c21: 'G',    c22: 'Cmaj7', c23: 'A7',
+      c24: '',     c25: 'Dm7',  c26: 'G',    c27: 'Gm7',  c28: 'C9',
+      c29: '',     c30: 'F',    c31: 'G/F',  c32: 'Em7',  c33: 'A7',
+      c34: '',     c35: 'Dm7',  c36: 'G11',  c37: 'Cmaj7'
+    };
+
+    const rootKey = 'C';
+  </script>
+  <script src="../header-lagu.js"></script>
+  <script src="../script.js"></script>
+  <script src="../settings.js"></script>
 </body>
 </html>

@@ -207,13 +207,15 @@
   gap: 10px;
 }
 .menu-card {
-  background: var(--color-background-primary, #ffffff);
+  background: #ffffff;
   border: 0.5px solid #dddddd;
   border-radius: 12px;
   padding: 16px 14px;
   cursor: pointer;
   transition: border-color 0.15s;
 }
+
+
 .menu-card:hover { border-color: #aaaaaa; }
 .menu-icon {
   width: 36px;
@@ -311,7 +313,7 @@
     </div>
 
     <!-- ===== MENU UTAMA ===== -->
-<div class="content" id="menu-utama">
+<div class="content" id="menu-utama" style="max-width: 100%; box-sizing: border-box;">
   <div class="menu-grid">
 
     <div class="menu-card" onclick="showSection('daftar-lagu')">
@@ -477,6 +479,13 @@ function showMenu() {
   document.getElementById('kunci-gitar').style.display = 'none';
   document.getElementById('terbaru').style.display = 'none';
   document.getElementById('search').value = '';
+}
+
+// ===== BACK TO SECTION =====
+const backTo = sessionStorage.getItem('backTo');
+if (backTo) {
+  sessionStorage.removeItem('backTo');
+  showSection(backTo);
 }
 
   </script>

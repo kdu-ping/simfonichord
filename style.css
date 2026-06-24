@@ -19,8 +19,9 @@ body {
 .header {
   background: #ffffff;
   padding: 20px 28px;
-  border-radius: 12px 12px 0 0;
-  border-bottom: 1px solid #dddddd;
+  border-radius: 0;
+  border: none;
+  margin-bottom: 12px;
 }
 
 
@@ -59,9 +60,11 @@ body {
 .content {
   background: #ffffff;
   padding: 24px 28px;
-  border-radius: 0 0 12px 12px;
+  border-radius: 12px;
   border: 1px solid #dddddd;
-  border-top: none;
+  margin-top: 12px;
+  margin-left: 28px;
+  margin-right: 28px;
 }
 
 
@@ -110,8 +113,8 @@ body.dark {
 }
 
 body.dark .header {
-  background: #16213e;
-  border-bottom: 1px solid #2a2a4a;
+  background: #1a1a2e;
+  border: none;
 }
 
 body.dark .song-title {

@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
       
       <!-- TOMBOL BACK -->
-      <a href="../index.html" style="text-decoration: none; color: #888aaa; font-size: 28px;">&#11013;</a>
+      <a href="../index.html#daftar-lagu" onclick="sessionStorage.setItem('backTo', 'daftar-lagu')" style="text-decoration: none; color: #888aaa; font-size: 28px;">&#11013;</a>
 
       <!-- TOMBOL SETTINGS -->
       <div style="position: relative;">

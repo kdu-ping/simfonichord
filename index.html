@@ -433,6 +433,7 @@ function renderLagu(filter) {
   const list = document.getElementById('song-list');
   const noResult = document.getElementById('no-result');
   let lagu = filter ? daftarLagu.filter(filter) : daftarLagu;
+lagu = lagu.slice().sort((a, b) => a.title.localeCompare(b.title));
   
   list.innerHTML = lagu.map(l => `
     <li class="song-item" data-title="${l.title}" data-artist="${l.artist}">

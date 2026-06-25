@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kunci Gitar - SimfoniChord</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .kg-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .kg-back {
+      font-size: 28px;
+      color: #888aaa;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .kg-back:hover { color: #1B2F4E; }
+    .kg-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1B2F4E;
+      font-family: sans-serif;
+    }
+    .sub-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .sub-card {
+      background: #ffffff;
+      border: 0.5px solid #dddddd;
+      border-radius: 12px;
+      padding: 20px 16px;
+      cursor: pointer;
+      transition: border-color 0.15s;
+      text-align: center;
+    }
+    .sub-card:hover { border-color: #aaaaaa; }
+    .sub-icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .sub-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: #1B2F4E;
+      font-family: sans-serif;
+    }
+    .sub-desc {
+      font-size: 12px;
+      color: #888aaa;
+      font-family: sans-serif;
+      margin-top: 4px;
+    }
+    .section-back {
+      font-size: 14px;
+      color: #888aaa;
+      cursor: pointer;
+      padding: 0 0 14px;
+      font-family: sans-serif;
+    }
+    .section-back:hover { color: #1B2F4E; }
+
+    /* ===== FAMILY CHORD ===== */
+    .family-img {
+      width: 100%;
+      border-radius: 8px;
+      margin: 12px 0;
+    }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1B2F4E;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-family: sans-serif;
+      font-size: 14px;
+      margin-top: 8px;
+      transition: background 0.15s;
+    }
+    .download-btn:hover { background: #378add; }
+
+    /* ===== KAMUS CHORD ===== */
+    .chord-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0 16px;
+    }
+    .filter-btn {
+      background: #f0f0f0;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-family: sans-serif;
+      cursor: pointer;
+      color: #333333;
+      transition: background 0.15s;
+    }
+    .filter-btn.active {
+      background: #1B2F4E;
+      color: #ffffff;
+    }
+    .filter-btn:hover { background: #d0d0d0; }
+    .filter-btn.active:hover { background: #378add; }
+    .chord-group { margin-bottom: 24px; }
+    .chord-group-title {
+      font-size: 12px;
+      color: #888aaa;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-family: sans-serif;
+      margin-bottom: 12px;
+    }
+    .chord-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 10px;
+    }
+    .chord-card {
+      background: #ffffff;
+      border: 0.5px solid #dddddd;
+      border-radius: 10px;
+      padding: 10px 6px;
+      text-align: center;
+    }
+    .chord-card-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1B2F4E;
+      font-family: sans-serif;
+      margin-bottom: 8px;
+    }
+    .fret-diagram {
+      display: inline-block;
+    }
+    .open-row {
+      display: flex;
+      margin-bottom: 2px;
+    }
+    .open-cell {
+      width: 13px;
+      font-size: 8px;
+      color: #888aaa;
+      text-align: center;
+      font-family: sans-serif;
+    }
+    .nut-bar {
+      width: 78px;
+      height: 3px;
+      background: #1B2F4E;
+      border-radius: 1px;
+      margin-bottom: 0;
+    }
+    .fret-row {
+      display: flex;
+    }
+    .fret-cell {
+      width: 13px;
+      height: 13px;
+      border-right: 0.5px solid #cccccc;
+      border-bottom: 0.5px solid #cccccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .fret-cell:last-child { border-right: none; }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1B2F4E;
+    }
+    .fret-num {
+      font-size: 8px;
+      color: #888aaa;
+      font-family: sans-serif;
+      margin-left: 2px;
+      line-height: 13px;
+    }
+
+    /* ===== DARK MODE ===== */
+    body.dark .kg-title { color: #e0e0ff; }
+    body.dark .sub-card { background: #16213e; border-color: #2a2a4a; }
+    body.dark .sub-name { color: #e0e0ff; }
+    body.dark .chord-card { background: #16213e; border-color: #2a2a4a; }
+    body.dark .chord-card-name { color: #e0e0ff; }
+    body.dark .nut-bar { background: #e0e0ff; }
+    body.dark .dot { background: #378add; }
+    body.dark .fret-cell { border-color: #3a3a5a; }
+    body.dark .open-cell { color: #888aaa; }
+    body.dark .filter-btn { background: #2a2a4a; color: #e0e0ff; }
+    body.dark .filter-btn.active { background: #378add; }
+    body.dark .section-back { color: #888aaa; }
+    body.dark .section-back:hover { color: #e0e0ff; }
+    body.dark .kg-back { color: #888aaa; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header" id="header-top">
+      <div class="kg-header">
+        <a onclick="goBack()" class="kg-back">&#11013;</a>
+        <div class="kg-title" id="page-title">Kunci Gitar</div>
+      </div>
+    </div>
+
+    <!-- ===== SUB MENU ===== -->
+    <div class="content" id="sub-menu">
+      <div class="sub-grid">
+        <div class="sub-card" onclick="showPage('family')">
+          <div class="sub-icon">🎵</div>
+          <div class="sub-name">Family Chord</div>
+          <div class="sub-desc">Tabel keluarga chord</div>
+        </div>
+        <div class="sub-card" onclick="showPage('kamus')">
+          <div class="sub-icon">📖</div>
+          <div class="sub-name">Kamus Chord</div>
+          <div class="sub-desc">Diagram posisi jari</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FAMILY CHORD ===== -->
+    <div class="content" id="page-family" style="display:none;">
+      <div class="section-back" onclick="showSub()">← Kembali</div>
+      <img src="Kunci-Gitar/FamilyChord.png" alt="Family Chord" class="family-img">
+      <div style="text-align:center;">
+        <a href="Kunci-Gitar/FamilyChord.png" download="FamilyChord-SimfoniChord.png" class="download-btn">
+          ⬇ Download Tabel Family Chord
+        </a>
+      </div>
+    </div>
+
+    <!-- ===== KAMUS CHORD ===== -->
+    <div class="content" id="page-kamus" style="display:none;">
+      <div class="section-back" onclick="showSub()">← Kembali</div>
+
+      <div class="chord-filter">
+        <button class="filter-btn active" onclick="filterChord('all', this)">Semua</button>
+        <button class="filter-btn" onclick="filterChord('mayor', this)">Mayor</button>
+        <button class="filter-btn" onclick="filterChord('minor', this)">Minor</button>
+        <button class="filter-btn" onclick="filterChord('7', this)">7th</button>
+        <button class="filter-btn" onclick="filterChord('m7', this)">Minor 7th</button>
+        <button class="filter-btn" onclick="filterChord('maj7', this)">Major 7th</button>
+      </div>
+
+      <div id="chord-container"></div>
+    </div>
+  </div>
+
+  <script>
+    // ===== DATA CHORD =====
+    // Format: [E, A, D, G, B, e] — angka = fret, 0 = open, -1 = mute
+    // fretStart = fret mulai (untuk chord barre di fret tinggi)
+    const chordData = {
+      mayor: [
+        { name:'C',  strings:[-1,3,2,0,1,0], fretStart:1 },
+        { name:'C#', strings:[-1,4,3,1,2,1], fretStart:1 },
+        { name:'D',  strings:[-1,-1,0,2,3,2], fretStart:1 },
+        { name:'D#', strings:[-1,-1,1,3,4,3], fretStart:1 },
+        { name:'E',  strings:[0,2,2,1,0,0], fretStart:1 },
+        { name:'F',  strings:[1,3,3,2,1,1], fretStart:1 },
+        { name:'F#', strings:[2,4,4,3,2,2], fretStart:1 },
+        { name:'G',  strings:[3,2,0,0,0,3], fretStart:1 },
+        { name:'G#', strings:[4,3,1,1,1,4], fretStart:1 },
+        { name:'A',  strings:[-1,0,2,2,2,0], fretStart:1 },
+        { name:'A#', strings:[-1,1,3,3,3,1], fretStart:1 },
+        { name:'B',  strings:[-1,2,4,4,4,2], fretStart:1 },
+      ],
+      minor: [
+        { name:'Cm',  strings:[-1,3,5,5,4,3], fretStart:3 },
+        { name:'C#m', strings:[-1,4,6,6,5,4], fretStart:4 },
+        { name:'Dm',  strings:[-1,-1,0,2,3,1], fretStart:1 },
+        { name:'D#m', strings:[-1,-1,1,3,4,2], fretStart:1 },
+        { name:'Em',  strings:[0,2,2,0,0,0], fretStart:1 },
+        { name:'Fm',  strings:[1,3,3,1,1,1], fretStart:1 },
+        { name:'F#m', strings:[2,4,4,2,2,2], fretStart:2 },
+        { name:'Gm',  strings:[3,5,5,3,3,3], fretStart:3 },
+        { name:'G#m', strings:[4,6,6,4,4,4], fretStart:4 },
+        { name:'Am',  strings:[-1,0,2,2,1,0], fretStart:1 },
+        { name:'A#m', strings:[-1,1,3,3,2,1], fretStart:1 },
+        { name:'Bm',  strings:[-1,2,4,4,3,2], fretStart:2 },
+      ],
+      '7': [
+        { name:'C7',  strings:[-1,3,2,3,1,0], fretStart:1 },
+        { name:'C#7', strings:[-1,4,3,4,2,1], fretStart:1 },
+        { name:'D7',  strings:[-1,-1,0,2,1,2], fretStart:1 },
+        { name:'D#7', strings:[-1,-1,1,3,2,3], fretStart:1 },
+        { name:'E7',  strings:[0,2,0,1,0,0], fretStart:1 },
+        { name:'F7',  strings:[1,3,1,2,1,1], fretStart:1 },
+        { name:'F#7', strings:[2,4,2,3,2,2], fretStart:2 },
+        { name:'G7',  strings:[3,2,0,0,0,1], fretStart:1 },
+        { name:'G#7', strings:[4,3,1,1,1,2], fretStart:1 },
+        { name:'A7',  strings:[-1,0,2,0,2,0], fretStart:1 },
+        { name:'A#7', strings:[-1,1,3,1,3,1], fretStart:1 },
+        { name:'B7',  strings:[-1,2,1,2,0,2], fretStart:1 },
+      ],
+      m7: [
+        { name:'Cm7',  strings:[-1,3,5,3,4,3], fretStart:3 },
+        { name:'C#m7', strings:[-1,4,6,4,5,4], fretStart:4 },
+        { name:'Dm7',  strings:[-1,-1,0,2,1,1], fretStart:1 },
+        { name:'D#m7', strings:[-1,-1,1,3,2,2], fretStart:1 },
+        { name:'Em7',  strings:[0,2,2,0,3,0], fretStart:1 },
+        { name:'Fm7',  strings:[1,3,3,1,4,1], fretStart:1 },
+        { name:'F#m7', strings:[2,4,4,2,5,2], fretStart:2 },
+        { name:'Gm7',  strings:[3,5,5,3,6,3], fretStart:3 },
+        { name:'G#m7', strings:[4,6,6,4,7,4], fretStart:4 },
+        { name:'Am7',  strings:[-1,0,2,0,1,0], fretStart:1 },
+        { name:'A#m7', strings:[-1,1,3,1,2,1], fretStart:1 },
+        { name:'Bm7',  strings:[-1,2,4,2,3,2], fretStart:2 },
+      ],
+      maj7: [
+        { name:'Cmaj7',  strings:[-1,3,2,0,0,0], fretStart:1 },
+        { name:'C#maj7', strings:[-1,4,3,1,1,1], fretStart:1 },
+        { name:'Dmaj7',  strings:[-1,-1,0,2,2,2], fretStart:1 },
+        { name:'D#maj7', strings:[-1,-1,1,3,3,3], fretStart:1 },
+        { name:'Emaj7',  strings:[0,2,1,1,0,0], fretStart:1 },
+        { name:'Fmaj7',  strings:[1,3,2,2,1,0], fretStart:1 },
+        { name:'F#maj7', strings:[2,4,3,3,2,1], fretStart:2 },
+        { name:'Gmaj7',  strings:[3,2,0,0,0,2], fretStart:1 },
+        { name:'G#maj7', strings:[4,3,1,1,1,3], fretStart:1 },
+        { name:'Amaj7',  strings:[-1,0,2,1,2,0], fretStart:1 },
+        { name:'A#maj7', strings:[-1,1,3,2,3,1], fretStart:1 },
+        { name:'Bmaj7',  strings:[-1,2,4,3,4,2], fretStart:2 },
+      ],
+    };
+
+    // ===== RENDER DIAGRAM CHORD =====
+    function renderDiagram(strings, fretStart) {
+      const numFrets = 4;
+      // Normalize: kurangi semua fret dengan (fretStart-1) kalau fretStart > 1
+      const offset = fretStart > 1 ? fretStart - 1 : 0;
+      const norm = strings.map(s => s > 0 ? s - offset : s);
+
+      let openRow = '<div class="open-row">';
+      strings.forEach(s => {
+        if (s === -1) openRow += '<div class="open-cell">x</div>';
+        else if (s === 0) openRow += '<div class="open-cell">o</div>';
+        else openRow += '<div class="open-cell"> </div>';
+      });
+      openRow += '</div>';
+
+      let fretNumLabel = fretStart > 1 ? `<div style="font-size:8px;color:#888aaa;font-family:sans-serif;text-align:left;margin-top:2px;">${fretStart}fr</div>` : '';
+
+      let rows = '';
+      for (let f = 1; f <= numFrets; f++) {
+        rows += '<div class="fret-row">';
+        norm.forEach(s => {
+          rows += '<div class="fret-cell">';
+          if (s === f) rows += '<div class="dot"></div>';
+          rows += '</div>';
+        });
+        rows += '</div>';
+      }
+
+      return `<div class="fret-diagram">${openRow}<div class="nut-bar"></div>${rows}${fretNumLabel}</div>`;
+    }
+
+    // ===== RENDER SEMUA CHORD =====
+    function renderChords(filter) {
+      const container = document.getElementById('chord-container');
+      const groups = filter === 'all'
+        ? ['mayor','minor','7','m7','maj7']
+        : [filter];
+
+      const labels = {
+        mayor: 'Mayor',
+        minor: 'Minor',
+        '7': '7th',
+        m7: 'Minor 7th',
+        maj7: 'Major 7th'
+      };
+
+      let html = '';
+      groups.forEach(g => {
+        html += `<div class="chord-group"><div class="chord-group-title">${labels[g]}</div><div class="chord-grid">`;
+        chordData[g].forEach(chord => {
+          html += `<div class="chord-card">
+            <div class="chord-card-name">${chord.name}</div>
+            ${renderDiagram(chord.strings, chord.fretStart)}
+          </div>`;
+        });
+        html += '</div></div>';
+      });
+      container.innerHTML = html;
+    }
+
+    function filterChord(type, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderChords(type);
+    }
+
+    // ===== NAVIGASI =====
+    let currentPage = 'sub';
+
+    function showPage(page) {
+      document.getElementById('sub-menu').style.display = 'none';
+      document.getElementById('page-family').style.display = 'none';
+      document.getElementById('page-kamus').style.display = 'none';
+      document.getElementById('page-' + page).style.display = 'block';
+      currentPage = page;
+
+      const titles = { family: 'Family Chord', kamus: 'Kamus Chord' };
+      document.getElementById('page-title').textContent = titles[page];
+
+      if (page === 'kamus') renderChords('all');
+    }
+
+    function showSub() {
+      document.getElementById('sub-menu').style.display = 'block';
+      document.getElementById('page-family').style.display = 'none';
+      document.getElementById('page-kamus').style.display = 'none';
+      currentPage = 'sub';
+      document.getElementById('page-title').textContent = 'Kunci Gitar';
+    }
+
+    function goBack() {
+      if (currentPage === 'sub') {
+        sessionStorage.setItem('backTo', 'kunci-gitar');
+        window.location.href = 'index.html';
+      } else {
+        showSub();
+      }
+    }
+
+    // ===== DARK MODE =====
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+    }
+  </script>
+</body>
+</html>

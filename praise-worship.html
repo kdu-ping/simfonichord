@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Praise & Worship - SimfoniChord</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo2.png">
+  <script src="daftar-lagu.js"></script>
+  <style>
+    .pw-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .pw-back {
+      font-size: 28px;
+      color: #888aaa;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .pw-back:hover { color: #1B2F4E; }
+    .pw-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1B2F4E;
+      font-family: sans-serif;
+    }
+    .sub-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .sub-card {
+      background: #ffffff;
+      border: 0.5px solid #dddddd;
+      border-radius: 12px;
+      padding: 20px 16px;
+      cursor: pointer;
+      transition: border-color 0.15s;
+      text-align: center;
+    }
+    .sub-card:hover { border-color: #aaaaaa; }
+    .sub-icon { font-size: 32px; margin-bottom: 10px; }
+    .sub-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: #1B2F4E;
+      font-family: sans-serif;
+    }
+    .sub-desc {
+      font-size: 12px;
+      color: #888aaa;
+      font-family: sans-serif;
+      margin-top: 4px;
+    }
+    .song-list { list-style: none; }
+    .song-item { border-bottom: 1px solid #eeeeee; }
+    .song-item a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 4px;
+      color: #1B2F4E;
+      text-decoration: none;
+      font-family: sans-serif;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+    .song-item a:hover { color: #378add; }
+    .song-item .artist {
+      font-size: 12px;
+      color: #888aaa;
+      margin-top: 3px;
+    }
+    .song-item .arrow { color: #888aaa; font-size: 18px; }
+    .no-result {
+      text-align: center;
+      color: #888aaa;
+      padding: 30px 0;
+      font-family: sans-serif;
+      font-size: 14px;
+    }
+
+    /* ===== DARK MODE ===== */
+    body.dark .pw-title { color: #e0e0ff; }
+    body.dark .pw-back { color: #888aaa; }
+    body.dark .sub-card { background: #16213e; border-color: #2a2a4a; }
+    body.dark .sub-name { color: #e0e0ff; }
+    body.dark .song-item { border-color: #2a2a4a; }
+    body.dark .song-item a { color: #e0e0ff; }
+    body.dark .song-item .artist { color: #888aaa; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header" id="header-top">
+      <div class="pw-header">
+        <a onclick="goBack()" class="pw-back">&#11013;</a>
+        <div class="pw-title" id="page-title">Praise & Worship</div>
+      </div>
+    </div>
+
+    <!-- ===== SUB MENU ===== -->
+    <div class="content" id="sub-menu">
+      <div class="sub-grid">
+        <div class="sub-card" onclick="showPage('praise')">
+          <div class="sub-icon">🙌</div>
+          <div class="sub-name">Praise</div>
+          <div class="sub-desc" id="desc-praise">Lagu pujian</div>
+        </div>
+        <div class="sub-card" onclick="showPage('worship')">
+          <div class="sub-icon">🙏</div>
+          <div class="sub-name">Worship</div>
+          <div class="sub-desc" id="desc-worship">Lagu penyembahan</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PRAISE ===== -->
+    <div class="content" id="page-praise" style="display:none;">
+      <ul class="song-list" id="list-praise"></ul>
+      <div class="no-result" id="no-praise" style="display:none;">Belum ada lagu 😔</div>
+    </div>
+
+    <!-- ===== WORSHIP ===== -->
+    <div class="content" id="page-worship" style="display:none;">
+      <ul class="song-list" id="list-worship"></ul>
+      <div class="no-result" id="no-worship" style="display:none;">Belum ada lagu 😔</div>
+    </div>
+  </div>
+
+  <script>
+    let currentPage = 'sub';
+
+    // ===== RENDER LAGU =====
+    function renderLagu(kategori) {
+      const listId = 'list-' + kategori;
+      const noId = 'no-' + kategori;
+      const list = document.getElementById(listId);
+      const noResult = document.getElementById(noId);
+
+      // Filter dan urutkan berdasarkan abjad
+      const lagu = daftarLagu
+        .filter(l => l.kategori === kategori)
+        .sort((a, b) => a.title.localeCompare(b.title));
+
+      if (lagu.length === 0) {
+        list.innerHTML = '';
+        noResult.style.display = 'block';
+        return;
+      }
+
+      noResult.style.display = 'none';
+      list.innerHTML = lagu.map(l => `
+        <li class="song-item">
+          <a href="Lagu/${l.file}.html">
+            <div>
+              <div>${l.title}</div>
+              <div class="artist">${l.artist}</div>
+            </div>
+            <span class="arrow">›</span>
+          </a>
+        </li>
+      `).join('');
+    }
+
+    // ===== UPDATE DESC =====
+    function updateDesc() {
+      const praiseCount = daftarLagu.filter(l => l.kategori === 'praise').length;
+      const worshipCount = daftarLagu.filter(l => l.kategori === 'worship').length;
+      document.getElementById('desc-praise').textContent = praiseCount + ' lagu tersedia';
+      document.getElementById('desc-worship').textContent = worshipCount + ' lagu tersedia';
+    }
+
+    // ===== NAVIGASI =====
+    function showPage(page) {
+      document.getElementById('sub-menu').style.display = 'none';
+      document.getElementById('page-praise').style.display = 'none';
+      document.getElementById('page-worship').style.display = 'none';
+      document.getElementById('page-' + page).style.display = 'block';
+      currentPage = page;
+
+      const titles = { praise: 'Praise', worship: 'Worship' };
+      document.getElementById('page-title').textContent = titles[page];
+
+      renderLagu(page);
+    }
+
+    function showSub() {
+      document.getElementById('sub-menu').style.display = 'block';
+      document.getElementById('page-praise').style.display = 'none';
+      document.getElementById('page-worship').style.display = 'none';
+      currentPage = 'sub';
+      document.getElementById('page-title').textContent = 'Praise & Worship';
+    }
+
+    function goBack() {
+      if (currentPage === 'sub') {
+        window.location.href = 'index.html';
+      } else {
+        showSub();
+      }
+    }
+
+    // ===== DARK MODE =====
+    if (localStorage.getItem('theme-index') === 'dark') {
+      document.body.classList.add('dark');
+    }
+
+    // ===== INIT =====
+    updateDesc();
+  </script>
+</body>
+</html>

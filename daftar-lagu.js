@@ -1,7 +1,4 @@
 // ===== DATA SEMUA LAGU =====
-// Untuk tambah lagu baru:
-// 1. Buat file JSON di folder data/
-// 2. Tambah 1 baris di sini
 const daftarLagu = [
   { title: 'Bapa Engkau Sungguh Baik', artist: 'Franky Sihombing', file: 'bapa-engkau-sungguh-baik', kategori: 'worship', terbaru: false },
   { title: 'Glory Glory Halleluya',    artist: 'Lagu Rohani',       file: 'glory-glory-haleluyah',   kategori: 'praise',  terbaru: false },

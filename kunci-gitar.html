@@ -232,7 +232,6 @@
 
     <!-- ===== FAMILY CHORD ===== -->
     <div class="content" id="page-family" style="display:none;">
-      <div class="section-back" onclick="showSub()">← Kembali</div>
       <img src="Kunci-Gitar/FamilyChord.png" alt="Family Chord" class="family-img">
       <div style="text-align:center;">
         <a href="Kunci-Gitar/FamilyChord.png" download="FamilyChord-SimfoniChord.png" class="download-btn">
@@ -243,7 +242,6 @@
 
     <!-- ===== KAMUS CHORD ===== -->
     <div class="content" id="page-kamus" style="display:none;">
-      <div class="section-back" onclick="showSub()">← Kembali</div>
 
       <div class="chord-filter">
         <button class="filter-btn active" onclick="filterChord('all', this)">Semua</button>
@@ -427,7 +425,6 @@
 
     function goBack() {
       if (currentPage === 'sub') {
-        sessionStorage.setItem('backTo', 'kunci-gitar');
         window.location.href = 'index.html';
       } else {
         showSub();
